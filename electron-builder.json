@@ -34,8 +34,8 @@
     "perMachine": false,
     "publish": {
       "provider": "github",
-      "owner": "bose corp",
-      "repo": "accurate",
+      "owner": "Akhil-Biju-Mindtree",
+      "token": "d05bb3c8c35fc5bdfa960cadd2f2b173f6568647",
       "vPrefixedTagName": true,
       "private": true,
       "releaseType": "draft",

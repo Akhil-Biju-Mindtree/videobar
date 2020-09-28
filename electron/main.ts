@@ -113,6 +113,7 @@ try {
       subscribeToIPCListeners();
       loggerService.trace('next will go inside close browserwindow function');
       closeBrowserWindow();
+      autoUpdater.checkForUpdatesAndNotify();
     } catch (ex) {
       loggerService.error(`uncaught exception: ${ex}`);
       errorDialog('Error', 'Not able to start the application. Please contact system administrator');

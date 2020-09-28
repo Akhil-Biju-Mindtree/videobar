@@ -68,7 +68,7 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve ",
     "electron:local": "npm run build:prod && electron .",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
-    "electron:windows": "npm run build:prod && npm run copy-config:windows && electron-builder --windows --publish always",
+    "electron:windows": "npm run build:prod && npm run copy-config:windows &&  electron-builder --windows --publish always",
     "electron:windows-devtools": "npm run build:prod && npm run copy-config:windows && npm run copy-mainwindow:ts && npm run copy-builder:json && electron-builder --windows",
     "electron:mac": "npm run build:prod && npm run copy-config:mac && electron-builder build --mac",
     "test": "jest",
