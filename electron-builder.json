@@ -17,10 +17,7 @@
   ],
   "win": {
     "target": ["nsis"],
-    "icon": "build/icon/installerIcon.ico",
-    "certificateFile": "build/test-certificate.pfx",
-    "certificatePassword": "passwordholder",
-    "verifyUpdateCodeSignature": true
+    "icon": "build/icon/installerIcon.ico"
   },
   "linux": {
     "icon": "dist",
