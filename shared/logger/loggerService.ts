@@ -49,21 +49,21 @@ class LoggerService {
   }
 
   debug(data) {
-    logger.debug(data);
+    // logger.debug(data);
   }
 
   info(data) {
-    logger.info(data);
+    // logger.info(data);
   }
   warn(data) {
-    logger.warn(data);
+    // logger.warn(data);
   }
   error(data) {
     logger.error(data);
   }
 
   trace(data) {
-    logger.verbose(data);
+    // logger.verbose(data);
   }
 }
 

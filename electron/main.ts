@@ -6,6 +6,10 @@ import loggerService from '../shared/logger/loggerService';
 import deviceController from '../server/controllers/device.controller';
 import fileLocationMainService from '../shared/fileLocationMain/fileLocationMainService';
 import { SharedConstants } from '../shared/constants/shared.constants';
+const { autoUpdater } = require('electron-updater');
+const log = require('electron-log');
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
 
 const AsynchronousRequest = SharedConstants.Channels.ASYNCHRONOUS_REQUEST;
 const AsynchronousRequestAction = SharedConstants.Channels.ASYNCHRONOUS_REQUEST_ACTION;
@@ -72,7 +76,11 @@ try {
     });
 
     ipcMain.on(CombinedResponse, (event, arg) => {
-      if (arg.indexOf(PropertyOutofRange) > -1 || arg.indexOf(InvalidProperty) > -1 || arg.indexOf(InvalidAction) > -1) {
+      if (
+        arg.indexOf(PropertyOutofRange) > -1 ||
+        arg.indexOf(InvalidProperty) > -1 ||
+        arg.indexOf(InvalidAction) > -1
+      ) {
         browsermainWindow.webContents.send(ErrorResponse, arg);
       } else {
         browsermainWindow.webContents.send(AsynchronousResponse, arg);
