@@ -83,12 +83,7 @@
     "build:web-prod:server": "npm run ng:build:web-prod && npm run bundle:web",
     "set-version": "node set-version.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint:all",
-      "pre-push": "yarn lint:all && yarn ngbuild:prod"
-    }
-  },
+  "husky": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",
     "@angular/cli": "8.3.29",
