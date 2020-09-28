@@ -1,0 +1,13 @@
+@import '_variables.scss';
+
+.no-camera-stream-container {
+  position: absolute !important;
+  left: 42px;
+  top: 30px;
+  background-color: $font-color-black;
+  opacity: 0.5;
+
+  #canvasLayout {
+    border-radius: 4px;
+  }
+}

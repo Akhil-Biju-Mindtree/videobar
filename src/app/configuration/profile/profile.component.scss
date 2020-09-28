@@ -1,0 +1,114 @@
+@import 'variables.scss';
+
+.restore-container {
+  width: 100%;
+}
+
+.container-heading-restore {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.container-heading-download {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  padding-top: 26px;
+}
+
+.container-heading-upload {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.name-container {
+  margin-top: 5px;
+}
+
+.name-heading {
+  display: inline-block;
+  color: $font-color-dark-grey;
+  margin-right: 8px;
+  width: 70px;
+}
+
+.description-heading {
+  display: inline-block;
+  color: $font-color-dark-grey;
+  margin-right: 8px;
+  width: 70px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+
+.profile-name-italics {
+  display: inline-block;
+  font-style: italic;
+}
+
+.profile-name {
+  display: inline-block;
+  font-style: normal;
+}
+
+.description-container {
+  display: flex;
+}
+
+.profile-description {
+  display: inline-block;
+  width: 297px;
+  line-height: 1.64;
+  letter-spacing: 0.04px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.restore-button-container {
+  height: 24px;
+  margin-top: 13px;
+}
+
+.profile-edited-container {
+  height: 100%;
+  width: 230px;
+  margin-right: 19px;
+  align-items: center;
+  display: inline-block;
+  color: $font-color-dark-grey;
+}
+
+.button-width {
+  width: 126px !important;
+}
+
+.download-profile-container {
+  height: 72px;
+  width: 100%;
+}
+
+.upload-profile-container {
+  height: 174px;
+  width: 100%;
+}
+
+.save-button-conatainer {
+  margin-left: 249px;
+}
+
+.file-upload-margin {
+  margin-top: 8px;
+}
+
+.apply-button-container {
+  margin-left: 249px;
+  margin-top: 10px;
+}
+
+.web-button-container {
+  margin-bottom: 6%;
+}

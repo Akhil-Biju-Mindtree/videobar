@@ -1,0 +1,41 @@
+@import 'variables.scss';
+.camera-preset-container {
+  position: relative;
+}
+
+.camera-preset {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 6px;
+  div:nth-child(2) {
+    padding-left: 20px;
+  }
+}
+
+.camera-preset-label {
+  padding-top: 7px;
+  width: 104px;
+  color: $font-color-dark-grey;
+  span {
+    cursor: pointer;
+    pointer-events: all;
+    display: block;
+    width: 65px;
+    img {
+      float: right;
+      margin-top: 2px;
+    }
+  }
+}
+
+.preset-control {
+  padding-left: 29px;
+}
+
+.save-preset-button {
+  display: flex;
+  margin-left: 306px;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}

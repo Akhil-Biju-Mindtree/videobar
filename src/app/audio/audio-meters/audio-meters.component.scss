@@ -1,0 +1,19 @@
+.audio-meters-container {
+  h6 {
+    margin: 0px;
+  }
+}
+
+.audio-input-levels {
+  margin-top: 12px;
+  .audio-meter:nth-child(2) {
+    margin-top: 2px;
+  }
+}
+
+.audio-output-levels {
+  margin-top: 24px;
+  .audio-meter:nth-child(2) {
+    margin-top: 12px;
+  }
+}

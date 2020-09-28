@@ -1,0 +1,133 @@
+<div class="ip-input-text-container">
+  <div class="input-text-label">
+    IP Configuration
+  </div>
+
+  <app-radio-button-horizontal
+    [uuid]="ipSettingUUID.IP_CONFIGURATION"
+    [allValues]="ipConfigurationValues"
+    [isLabelBold]="true"
+    (valueChecked)="onIPConfigChecked($event)"
+  ></app-radio-button-horizontal>
+</div>
+
+<div class="ip-settings-sub-container" *ngIf="isDHCPEnabled">
+  <div class="input-text-container">
+    <div class="input-text-label">
+      IP Address
+    </div>
+    <div class="input-text-field text-select">
+      {{ ipAddressDHCP }}
+    </div>
+  </div>
+
+  <div class="input-text-container">
+    <div class="input-text-label">
+      Subnet Mask
+    </div>
+    <div class="input-text-field text-select">
+      {{ subnetMaskDHCP }}
+    </div>
+  </div>
+
+  <div class="input-text-container">
+    <div class="input-text-label">
+      Default Gateway
+    </div>
+    <div class="input-text-field text-select">
+      {{ defaultGatewayDHCP }}
+    </div>
+  </div>
+
+  <div class="input-text-container">
+    <div class="input-text-label">
+      Primary DNS
+    </div>
+    <div class="input-text-field text-select">
+      {{ primaryDNSDHCP }}
+    </div>
+  </div>
+
+  <div class="input-text-container">
+    <div class="input-text-label">
+      Secondary DNS
+    </div>
+    <div class="input-text-field text-select">
+      {{ secondaryDNSDHCP }}
+    </div>
+  </div>
+
+  <div class="input-text-container">
+    <div class="input-text-label">
+      MAC Address
+    </div>
+    <div class="input-text-field text-select">
+      {{ macAddress }}
+    </div>
+  </div>
+</div>
+
+<div class="ip-settings-sub-container" *ngIf="!isDHCPEnabled">
+  <div class="input-text-container-static" *ngFor="let item of ipStatic">
+    <div class="input-text-label">
+      {{ item.label }}
+    </div>
+    <div class="input-text-field">
+      <ng-container *ngIf="item.uuid === ipSettingUUID.STATIC.IP_ADDRESS && status !== connectingString">
+        <app-text-field-textbox
+          appAutoFocus
+          [focusOnEmpty]="true"
+          [parentForm]="parentForm"
+          [uuid]="item.uuid"
+          (valueChange)="onValueChange($event, item.uuid)"
+          [isRequired]="item.isRequired"
+          [value]="item.value"
+          [errorMessage]="errorMessage"
+        ></app-text-field-textbox>
+      </ng-container>
+      <ng-container *ngIf="item.uuid === ipSettingUUID.STATIC.IP_ADDRESS && status === connectingString">
+        <span class="disabled-text">{{ item.value }}</span>
+      </ng-container>
+      <ng-container *ngIf="item.uuid !== ipSettingUUID.STATIC.IP_ADDRESS && status !== connectingString">
+        <app-text-field-textbox
+          [parentForm]="parentForm"
+          [uuid]="item.uuid"
+          (valueChange)="onValueChange($event, item.uuid)"
+          [isRequired]="item.isRequired"
+          [value]="item.value"
+          [errorMessage]="errorMessage"
+        ></app-text-field-textbox>
+      </ng-container>
+      <ng-container *ngIf="item.uuid !== ipSettingUUID.STATIC.IP_ADDRESS && status === connectingString">
+        <span class="disabled-text">{{ item.value }}</span>
+      </ng-container>
+    </div>
+  </div>
+  <div class="input-text-container-static">
+    <div class="input-text-label">
+      MAC Address
+    </div>
+    <div class="input-text-field text-select">
+      {{ macAddress }}
+    </div>
+  </div>
+</div>
+<div *ngIf="securityType === 'eap' && isWireless === true">
+  <app-eap-settings
+    [parentForm]="parentForm"
+    (eapInitialSettingsEmitter)="eapInitialSettingsUpdate($event)"
+    [isWireless]="isWireless"
+  ></app-eap-settings>
+</div>
+<div class="apply-conatianer" *ngIf="!isDHCPEnabled || securityType === 'eap'">
+  <button
+    [disabled]="
+      parentForm.invalid || !isFormValueChanged() || (isDHCPEnabled === isDeviceHasDHPCSetting && parentForm.pristine)
+    "
+    mat-button
+    class="primary-button"
+    (click)="confirmChange()"
+  >
+    Apply
+  </button>
+</div>

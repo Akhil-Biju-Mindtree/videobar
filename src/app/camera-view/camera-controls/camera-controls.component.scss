@@ -1,0 +1,41 @@
+.pane-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 160px; */
+}
+
+.button-controls-container {
+  display: flex;
+  order: 0;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+
+  #middle-btn {
+    margin: 0 40px;
+  }
+
+  /* display: block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20px; */
+}
+
+.slider-container-zoom {
+  display: flex;
+  margin-top: 13px;
+  margin-left: 85px;
+}
+
+.slider-container-volume {
+  display: flex;
+  margin-left: 85px;
+}
+
+.volume-pointer {
+  cursor: pointer;
+}

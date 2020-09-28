@@ -1,0 +1,136 @@
+@import 'variables.scss';
+
+.usb-title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 56px;
+  height: 40px;
+  align-items: center;
+}
+
+.usb-title-xs {
+  padding-left: 16px;
+}
+
+.firmwareUpdate {
+  position: absolute;
+  right: 30px;
+  font-family: gotham-bold;
+  outline: none;
+}
+
+table {
+  border: 0px !important;
+  border-spacing: 0px;
+}
+
+tr {
+  height: 48px;
+}
+
+td {
+  line-height: 1.64;
+  color: $font-color-black;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+table {
+  tr td:first-child {
+    padding-right: 24px;
+    color: $font-color-dark-grey;
+  }
+  tr td:second-child {
+    color: $color-grey;
+  }
+}
+
+tr.for-multiple-content {
+  height: 80px;
+}
+
+tr.for-single-content {
+  height: 48px;
+}
+
+.td-inner-content {
+  div {
+    height: 32px;
+  }
+}
+
+.flex-container {
+  display: flex;
+  padding-left: 56px;
+  padding-top: 12px;
+  overflow-y: auto;
+  height: 515px;
+  overflow-x: hidden;
+}
+
+.flex-container-xs {
+  padding-left: 16px;
+  padding-top: 12px;
+  min-width: 300px;
+  @media screen and (max-width: 300px) {
+    overflow-y: auto;
+  }
+}
+
+.main-content {
+  display: block;
+}
+
+.wifi {
+  margin-right: 3px;
+}
+
+.wifi-disabled {
+  filter: invert(0.8);
+}
+
+.icon-with-span {
+  display: flex;
+}
+
+.icon-with-span-bluetooth {
+  padding-left: 4px;
+}
+
+.icon-center {
+  margin-bottom: 15px;
+  padding-right: 1px;
+}
+
+.icon-center-bluetooth {
+  padding-right: 5px;
+}
+
+.details-heading {
+  margin-right: 12px;
+  color: $font-color-dark-grey;
+}
+
+.firmwareUpdate {
+  width: 100px;
+  height: 20px;
+  font-size: 9px;
+  padding: 0px 7px;
+  position: relative !important;
+  right: -45px !important;
+}
+
+.scroll-container-status {
+  height: calc(100vh - 54px) !important;
+  overflow-y: auto;
+}
+
+.ethernet-icon {
+  width: 22px;
+  height: 17px;
+}
+
+.wifi-icon {
+  width: 21px;
+  height: 17px;
+}

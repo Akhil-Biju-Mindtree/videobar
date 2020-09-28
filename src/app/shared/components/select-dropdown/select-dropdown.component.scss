@@ -1,0 +1,64 @@
+@import 'variables.scss';
+
+.selectbox-container {
+  border-radius: 4px;
+  width: 226px;
+  position: relative;
+  mat-select {
+    width: 226px;
+    background: $color-concrete;
+    height: 30px;
+    margin-left: 1px;
+    border-radius: 4px;
+  }
+  .video-tab-select:hover:not(.mat-select-disabled) {
+    background-color: $background-color-brown-grey !important;
+  }
+  .video-tab-container-opened {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  .drop-down-arrow {
+    position: absolute;
+    width: 18px;
+    height: 10px;
+    right: 5px;
+    top: 13px;
+    z-index: 1;
+  }
+}
+mat-option {
+  width: calc(100% - 10px) !important;
+}
+
+.second-icon-span {
+  float: right;
+  padding-left: 8px;
+  @supports (-ms-ime-align: auto) or (-moz-appearance: none) {
+    padding-right: 12px;
+  }
+}
+
+.twoicon-span {
+  width: calc(100% - 35px);
+  @supports (-ms-ime-align: auto) or (-moz-appearance: none) {
+    width: calc(100% - 46px);
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.oneicon-span {
+  width: calc(100% - 20px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.first-icon-span {
+  float: right;
+  padding-left: 8px;
+}
+.overflow-class {
+  width: calc(100% - 0px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

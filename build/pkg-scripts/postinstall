@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Executing postinstaller script for custom installer"
+# if we need to open the application after instalation uncomment below line
+# open /Applications/Bose\ Work\ Configuration.app
+echo "Finished:postflight"
+exit 0

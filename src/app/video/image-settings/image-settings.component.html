@@ -1,0 +1,82 @@
+<div class="image-container">
+  <div class="lowlight-container">
+    <div class="lowlight-label">
+      <span>Low Light Compensation</span>
+    </div>
+    <div class="lowlight-component">
+      <app-fab-smart-button
+        flex
+        [fabMiniStyles]="fabMiniStyles"
+        [elementID]="lowLightElementID"
+        (clickEmitter)="onButtonClicked($event)"
+      >
+      </app-fab-smart-button>
+      <div class="lowlight-display-label">
+        {{ islowLightCorrectionOn ? 'On' : 'Off' }}
+      </div>
+    </div>
+  </div>
+  <div class="backlight-container">
+    <div class="backlight-label">
+      <label class="label-text">{{ backLightControl.label }}</label>
+    </div>
+    <div class="backlight-component">
+      <app-select-dropdown
+        [parentForm]="backLightForm"
+        [uuid]="backLightControl.uuid"
+        [currentValue]="currentBackLight"
+        [itemList]="backLightDropDownList"
+        (sendDataEvent)="onDropdownReceive($event)"
+      ></app-select-dropdown>
+    </div>
+  </div>
+  <div class="antiflicker-container">
+    <div class="antiflicker-label">
+      <span> Antiflicker/Power <br />line Frequency</span>
+    </div>
+    <div class="antiflicker-component">
+      <app-radio-button-vertical [uuid]="cameraUUID" [allValues]="antiflicker"></app-radio-button-vertical>
+    </div>
+  </div>
+  <div *ngFor="let slider of sliders">
+    <app-silder-with-textbox
+      [restoreDefault]="restoreObservable"
+      [uuid]="slider.uuid"
+      [label]="slider.label"
+    ></app-silder-with-textbox>
+  </div>
+  <div class="white-balance">
+    <label class="white-balance-label">{{ whiteBalance[1].label }}</label>
+    <div class="white-balance-auto">
+      <label class="white-balance-auto-label">{{ whiteBalance[0].label }}</label>
+      <mat-checkbox
+        [checked]="whiteBalance[0].value"
+        (change)="onWhiteBalanceAutoChecked($event.checked)"
+      ></mat-checkbox>
+    </div>
+    <app-silder-with-textbox
+      [restoreDefault]="restoreObservable"
+      [uuid]="whiteBalance[1].uuid"
+      [textBoxContainerWidth]="textBoxContainerWidth"
+      [disabled]="isWhiteBalanceDisabled()"
+    ></app-silder-with-textbox>
+    <div class="white-balance-auto"></div>
+  </div>
+
+  <div class="restore-button-conatianer">
+    <button mat-button class="normal-button" (click)="restoreDefaults()">Restore Image Settings to Defaults</button>
+  </div>
+
+  <div class="video-overlay" [ngClass.xs]="{ 'video-overlay-web': !isDesktopApp }">
+    <div class="video-resolution-label">
+      <span>Video Resolution Overlay</span>
+    </div>
+    <div class="res-toggle-container">
+      <span class="res-toggle-span">
+        <mat-slide-toggle [checked]="osdResChecked" (change)="onOsdResToggleChange()"></mat-slide-toggle>
+      </span>
+      <span class="res-toggle-text">{{ restoggleText }}</span>
+    </div>
+  </div>
+
+</div>

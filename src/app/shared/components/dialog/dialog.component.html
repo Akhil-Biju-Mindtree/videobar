@@ -1,0 +1,35 @@
+<div [ngClass]="data.icon === '' ? 'title-inner-container' : 'title-inner-container-icon'">
+  <div class="dialog-title">
+    <span class="icon-holder" *ngIf="data.icon"><img class="icon-container" [src]="data.icon" /></span>
+    <span class="text-holder" [innerHTML]="data.displayContentText"></span>
+  </div>
+</div>
+<div [ngClass]="data.icon === '' ? 'inner-container' : 'inner-container-icon'">
+  <div class="dialog-content">
+    <ng-container #viewContainerRef></ng-container>
+  </div>
+  <div [ngClass]="data.icon === '' ? 'dialog-action' : 'dialog-action-icon'">
+    <button mat-button class="normal-button refute-button" (click)="closeDialog('close')">
+      {{ data.buttonLabel.RefuteButtonLabel }}
+    </button>
+    <button
+      *ngIf="data.noBtnFocus"
+      [disabled]="isFormInValid"
+      mat-button
+      class="primary-button"
+      (click)="onConfirmation()"
+    >
+      {{ data.buttonLabel.confirmButtonLabel }}
+    </button>
+    <button
+      *ngIf="!data.noBtnFocus"
+      cdkFocusInitial
+      [disabled]="isFormInValid"
+      mat-button
+      class="primary-button"
+      (click)="onConfirmation()"
+    >
+      {{ data.buttonLabel.confirmButtonLabel }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="camera-settings-container" [ngClass]="{'web-camera-settings-container': !isDesktopApp}">
+  <h6 class="heading-margin">Controls</h6>
+  <div>
+    <app-silder-with-textbox
+      *ngFor="let control of presetControls; let i = index"
+      [restoreDefault]="restoreObservable"
+      [label]="control.label"
+      [uuid]="control.uuid"
+      [parentForm]="ptzFormGroup"
+      [disabled]="isControlDisabled(i)"
+      (valueChange)="handleSliderUpdate($event, i)"
+    >
+    </app-silder-with-textbox>
+    <div class="save-preset-menu">
+      <app-select-dropdown
+        [itemList]="presets"
+        (sendDataEvent)="onSavePreset($event)"
+        [placeholder]="presetButtonLabel"
+        [currentValue]="undefined"
+        [isVideoTab]="true"
+        [isDisabled]="isDropDownDisabled"
+      ></app-select-dropdown>
+    </div>
+  </div>
+
+  <div class="preset-section">
+    <h6 class="heading-margin">Presets</h6>
+    <div class="preset-controls">
+      <app-camera-settings-preset
+        *ngFor="let preset of presets"
+        [preset]="preset"
+        [controls]="controlData[preset.uuid]"
+        [parentForm]="presetsFormGroup.get(preset.uuid)"
+        (presetSaved)="showNotification($event)"
+        [restoreDefault]="restoreObservable"
+      >
+      </app-camera-settings-preset>
+    </div>
+  </div>
+</div>

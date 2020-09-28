@@ -1,0 +1,14 @@
+cd $[buildDir]
+export PATH=/usr/bin/:$PATH
+yarn install
+yarn set-version
+yarn electron:rebuild
+yarn electron:mac
+
+# Sign the package manually as the electron:mac is not currently signing.
+cd release
+pkg=$(ls Bose-Work*.pkg)
+mv $pkg unsigned-$pkg
+productsign --sign 'Developer ID Installer: Bose Corporation (QC9P7FKWH6)' unsigned-$pkg $pkg
+pkgutil --check-signature $pkg
+

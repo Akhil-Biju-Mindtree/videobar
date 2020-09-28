@@ -1,0 +1,46 @@
+.audio-controls-container {
+  .audio-control-toggle:first-child {
+    margin-top: 5px;
+  }
+}
+
+.slider-controls {
+  margin-top: 25px;
+  .audio-control-slider:first-child {
+    margin-top: 0px;
+  }
+
+  .audio-control-slider:last-child {
+    margin-top: 24px;
+  }
+}
+
+.audio-control-toggle {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.audio-control-slider {
+  margin-top: 32px;
+}
+
+.audio-control-label {
+  width: 177px;
+  margin-top: 4px;
+  line-height: 18px;
+}
+
+.control-enabled-status {
+  margin-top: 4px;
+  line-height: 18px;
+  margin-left: 12px;
+}
+
+.restore-button-conatianer {
+  padding-left: 111px;
+  margin-top: 24px;
+}

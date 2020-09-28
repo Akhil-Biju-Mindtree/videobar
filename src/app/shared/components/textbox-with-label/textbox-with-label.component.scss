@@ -1,0 +1,13 @@
+@import 'variables.scss';
+.textbox-with-label {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .label-text {
+    padding-right: 8px;
+    padding-top: 7px;
+    color: $font-color-dark-grey;
+    text-align: right;
+    display: inline-block;
+  }
+}

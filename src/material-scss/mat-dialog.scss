@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+.cdk-overlay-dark-backdrop {
+  background: $color-overlay;
+}
+
+.mat-dialog-container {
+  //margin-top: 10px;
+  // padding: 24px 16px 16px 66px !important;
+  padding: 1px !important;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 0.8;
+}
+
+
+.custom-overlay-panel{
+  @media screen and (min-width: 720px){
+    margin-left: calc((100% - 356px)/2) !important;
+    margin-top: 72px !important;
+  }
+}

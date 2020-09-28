@@ -1,0 +1,195 @@
+@import 'variables.scss';
+
+/*---common---*/
+
+.sidenav-img-home-page {
+  margin-top: 7px;
+  margin-bottom: auto;
+  width: 22px;
+  height: 20px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.sidenav-img-usb-top {
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.font-active-link {
+  color: $color-grey;
+}
+
+/*---common---*/
+.fullsize {
+  a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 24px;
+  }
+
+  &.nav-block {
+    margin: 24px auto;
+
+    .nav-icon {
+      filter: invert(1);
+    }
+
+    .nav-icon-dark {
+      filter: invert(0.1);
+    }
+  }
+}
+
+/*---icon stylings---*/
+.sidenav-img-usb-status {
+  display: inline;
+  margin-top: 8px;
+  margin-bottom: auto;
+  width: 16px;
+  height: 16px;
+  @media screen and (max-width: 719px) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 720px) {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-status-full {
+  display: inline;
+  margin-top: 8px;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.sidenav-img-usb-configuartion {
+  display: inline;
+  margin-top: 9px;
+  margin-bottom: auto;
+  width: 16px;
+  height: 14px;
+  @media screen and (max-width: 719px) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 720px) {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-configuartion-full {
+  display: inline;
+  margin-top: 9px;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 16px;
+  height: 14px;
+}
+
+.sidenav-img-usb-video {
+  display: inline;
+  margin-top: 10px;
+  margin-bottom: auto;
+  width: 16px;
+  height: 11px;
+  @media screen and (max-width: 719px) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 720px) {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-video-full {
+  display: inline;
+  margin-top: 10px;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 16px;
+  height: 11px;
+}
+
+.sidenav-img-usb-audio {
+  display: inline;
+  margin-top: 9px;
+  margin-bottom: auto;
+  width: 15px;
+  height: 13px;
+  @media screen and (max-width: 719px) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 720px) {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-audio-full {
+  display: inline;
+  margin-top: 9px;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 15px;
+  height: 13px;
+}
+
+.sidenav-img-usb-network {
+  display: inline;
+  margin-top: 6px;
+  margin-bottom: auto;
+  width: 17px;
+  height: 18px;
+  @media screen and (max-width: 719px) {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 720px) {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-network-full {
+  display: inline;
+  margin-top: 6px;
+  margin-bottom: auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 17px;
+  height: 18px;
+}
+
+.sidenav-label-hide {
+  @media screen and (max-width: 719px) {
+    display: none;
+  }
+}
+
+.firmware-available-dot {
+  width: 6px;
+  height: 6px;
+  background-color: $bright-red;
+  border-radius: 50%;
+  position: absolute;
+  right: 6px;
+  top: 4px;
+}
+
+.image-container {
+  position: relative;
+}

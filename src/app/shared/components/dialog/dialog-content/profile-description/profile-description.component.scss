@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+.network-password-container {
+  .description-container {
+    padding-top: 12px;
+    width: 279px;
+    textarea {
+      resize: none;
+      width: 266px;
+      height: 64px;
+      border-radius: 4px;
+      background-color: $color-concrete;
+      border-color: $color-concrete !important;
+      padding: 8px;
+      font-family: inherit;
+      font-size: 11px;
+    }
+  }
+}
+
+.dialog-description {
+  width: 298px;
+  color: $font-color-dark-grey;
+}
+
+.text-counter-container {
+  padding-left: 194px;
+  text-align: right;
+  color: $background-color-grey;
+  width: 91px;
+}

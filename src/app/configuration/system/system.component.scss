@@ -1,0 +1,97 @@
+@import '_variables.scss';
+
+.system-container {
+  height: calc(100vh - 77px) !important;
+  overflow-y: auto;
+}
+
+.control {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.label-text {
+  color: $font-color-dark-grey;
+  line-height: 1.64;
+  width: 152px;
+}
+
+.label-ntp {
+  margin-top: 6px;
+}
+
+.content {
+  margin-top: 4px;
+  color: $font-color-dark-grey;
+  line-height: 1.45;
+  margin-right: 4px;
+}
+
+.radio-control {
+  padding: 14px 0px 14px 0px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.button-control {
+  padding: 25px 0px 15px 0px;
+  align-items: center;
+}
+
+.dropdown-control {
+  padding: 10px 0px 10px 0px;
+  align-items: center;
+}
+
+.textbox-control {
+  padding: 10px 0px 10px 0px;
+  align-items: flex-start;
+}
+
+.button-width {
+  width: 127px;
+}
+
+.button-padding {
+  padding: 0px 9px 0px 9px;
+}
+
+h6 {
+  margin: 0px;
+  width: 249px;
+}
+
+.restore-margin {
+  margin-top: 18px;
+}
+
+.content-button {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 249px;
+}
+
+.content-button-restore {
+  margin-top: 11px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 178px;
+}
+
+.content-section:last-child {
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.web-content-section {
+  margin-bottom: 6% !important;
+}
+
+.toggle-button {
+  padding: 15px 0px 0px 0px;
+}
+
+.restore-btn-width {
+  width: 200px;
+}

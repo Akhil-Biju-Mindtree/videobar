@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.inner-container {
+  padding: 17px 37px 16px 42px !important;
+}
+
+.dialog-content {
+  color: $font-color-dark-grey;
+  text-align: left;
+  line-height: 1.64;
+  width: 98%;
+  padding: 0px;
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+
+.dialog-title {
+  color: $font-color-black;
+  font-size: 11px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 1.5;
+}
+
+.current-progress-container {
+  margin-bottom: 20px;
+}
+
+.total-progress-container {
+  margin-bottom: 16px;
+}
+
+.progress-bar-style {
+  display: inline-block !important;
+  width: 236px !important;
+}
+
+.percentage-container {
+  float: right;
+  margin-right: 5px;
+}
+
+.operation-text {
+  margin-bottom: 9px;
+}
+
+.mat-progress-bar {
+  display: block;
+  height: 8px;
+  width: 272px;
+  overflow: hidden;
+  position: relative;
+  transition: opacity 250ms linear;
+  border-radius: 12px;
+}

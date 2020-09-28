@@ -1,0 +1,146 @@
+<div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+    <defs>
+      <path id="a" d="M 15.774 9.561 L 8.4 2.181 l -7.374 7.38 l -0.852 -0.852 L 8.4 0.489 l 8.226 8.22 Z" />
+      <path id="c" d="M 8.709 16.626 L 0.489 8.4 L 8.709 0.174 l 0.852 0.852 L 2.181 8.4 l 7.38 7.374 Z" />
+      <path id="e" d="M 8.4 9.111 L 0.174 0.891 l 0.852 -0.852 L 8.4 7.419 l 7.374 -7.38 l 0.852 0.852 Z" />
+      <path id="g" d="M 0.891 16.626 l -0.852 -0.852 L 7.419 8.4 L 0.039 1.026 L 0.891 0.174 L 9.111 8.4 Z" />
+      <!-- <path id="i" d="M 19.834 9.305 L 10.017 0.139 L 0.2 9.305 l 0.858 0.914 l 1.446 -1.353 v 10.287 H 17.53 V 8.866 l 1.453 1.353 l 0.851 -0.914 Z M 8.765 17.9 v -3.757 h 2.505 v 3.757 H 8.765 Z m 7.513 0 h -3.756 v -5.009 H 7.513 v 5.009 H 3.757 V 7.696 l 6.26 -5.842 l 6.261 5.842 V 17.9 Z" /> -->
+      <path
+        d="M 19.834 9.305 L 10.017 0.139 L 0.2 9.305 l 0.858 0.914 l 1.446 -1.353 v 10.287 H 17.53 V 8.866 l 1.453 1.353 l 0.851 -0.914 Z M 8.765 17.9 v -3.757 h 2.505 v 3.757 H 8.765 Z m 7.513 0 h -3.756 v -5.009 H 7.513 v 5.009 H 3.757 V 7.696 l 6.26 -5.842 l 6.261 5.842 V 17.9 Z"
+      />
+    </defs>
+
+    <g fill="none">
+      <g
+        (mouseenter)="onOverContolPad('tiltUp')"
+        (mouseleave)="onOutControlPad('tiltUp')"
+        (mousedown)="onControlPadClick('tiltUp', $event)"
+        (mouseup)="onContolPadClickReleased('tiltUp')"
+      >
+        <path
+          attr.fill="{{ tiltUp }}"
+          d="M 79.987 50.16 c 8.326 0 15.862 3.379 21.31 8.84 L 123 37.305 L 89.716 4.029 c -5.374 -5.372 -14.085 -5.372 -19.459 0 L 37 37.28 l 21.7 21.695 c 5.449 -5.447 12.975 -8.815 21.287 -8.815"
+        />
+        <mask id="b" attr.fill="{{ panFill }}">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#a" />
+        </mask>
+        <use
+          attr.fill="{{ panArrow }}"
+          fill-rule="nonzero"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#a"
+          transform="translate(72.8 12.2)"
+        />
+      </g>
+
+      <g
+        (mouseenter)="onOverContolPad('tiltDown')"
+        (mouseleave)="onOutControlPad('tiltDown')"
+        (mousedown)="onControlPadClick('tiltDown', $event)"
+        (mouseup)="onContolPadClickReleased('tiltDown')"
+      >
+        <path
+          attr.fill="{{ tiltDown }}"
+          xmlns="http://www.w3.org/2000/svg"
+          d="M 42.988 8.818 c -8.305 0 -15.824 -3.36 -21.273 -8.793 L 0 21.73 l 33.252 33.24 c 5.377 5.372 14.093 5.372 19.471 0 L 86 21.703 L 64.286 0 c -5.45 5.449 -12.98 8.818 -21.298 8.818"
+          transform="translate(37 101)"
+        />
+        <mask id="f" attr.fill="{{ panFill }}">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#e" />
+        </mask>
+        <use
+          attr.fill="{{ panArrow }}"
+          fill-rule="nonzero"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#e"
+          transform="translate(72.6 138.2)"
+        />
+      </g>
+
+      <!-- for right arrow -->
+      <g
+        (mouseenter)="onOverContolPad('panRight')"
+        (mouseleave)="onOutControlPad('panRight')"
+        (mousedown)="onControlPadClick('panRight', $event)"
+        (mouseup)="onContolPadClickReleased('panRight')"
+      >
+        <path
+          xmlns="http://www.w3.org/2000/svg"
+          attr.fill="{{ panRight }}"
+          d="M 21.73 0 L 0.025 21.714 c 5.433 5.45 8.793 12.968 8.793 21.273 c 0 8.319 -3.37 15.849 -8.818 21.3 L 21.705 86 l 33.262 -33.278 c 5.377 -5.376 5.377 -14.093 0 -19.47 L 21.73 0 Z"
+          transform="translate(101 37)"
+        />
+        <mask id="h" attr.fill="{{ panFill }}">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#g" />
+        </mask>
+        <use
+          attr.fill="{{ panArrow }}"
+          fill-rule="nonzero"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#g"
+          transform="translate(139.2 71.6)"
+        />
+      </g>
+
+      <!-- for left arrow -->
+      <g
+        (mouseenter)="onOverContolPad('panLeft')"
+        (mouseleave)="onOutControlPad('panLeft')"
+        (mousedown)="onControlPadClick('panLeft', $event)"
+        (mouseup)="onContolPadClickReleased('panLeft')"
+      >
+        <!-- <path attr.fill="{{ panLeft }}"
+         d="M 50.16 79.987 c 0 -8.312 3.367 -15.838 8.814 -21.286 L 37.278 37 L 4.03 70.258 c -5.372 5.373 -5.372 14.085 0 19.458 L 37.303 123 L 59 101.299 c -5.461 -5.45 -8.84 -12.986 -8.84 -21.312" transform="translate(-12 -72)"/> -->
+        <path
+          xmlns="http://www.w3.org/2000/svg"
+          attr.fill="{{ panLeft }}"
+          d="M 50.16 42.987 c 0 -8.312 3.367 -15.838 8.814 -21.286 L 37.278 0 L 4.03 33.258 c -5.372 5.373 -5.372 14.085 0 19.458 L 37.303 86 L 59 64.299 c -5.461 -5.45 -8.84 -12.986 -8.84 -21.312"
+          transform="translate(0 37)"
+        />
+        <mask id="d" attr.fill="{{ panFill }}">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#c" />
+        </mask>
+        <use
+          attr.fill="{{ panArrow }}"
+          fill-rule="nonzero"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="#c"
+          transform="translate(13.2 71.6)"
+        />
+      </g>
+      <!-- end of left arrow -->
+
+      <g
+        (mouseenter)="onOverContolPad('ptHome')"
+        (mouseleave)="onOutControlPad('ptHome')"
+        (mousedown)="onControlPadClick('ptHome', $event)"
+        (mouseup)="onContolPadClickReleased('ptHome')"
+      >
+        <path
+          id="circle"
+          d="M 19.834 9.305 L 10.017 0.139 L 0.2 9.305 l 0.858 0.914 l 1.446 -1.353 v 10.287 H 17.53 V 8.866 l 1.453 1.353 l 0.851 -0.914 Z M 8.765 17.9 v -3.757 h 2.505 v 3.757 H 8.765 Z m 7.513 0 h -3.756 v -5.009 H 7.513 v 5.009 H 3.757 V 7.696 l 6.26 -5.842 l 6.261 5.842 V 17.9 Z"
+        />
+        <path
+          attr.fill="{{ ptHome }}"
+          d="M 51.238 8.813 C 45.808 3.369 38.298 0 30 0 C 21.715 0 14.215 3.358 8.787 8.786 C 3.357 14.216 0 21.716 0 30 c 0 8.297 3.369 15.807 8.813 21.238 C 14.239 56.652 21.728 60 30 60 c 8.285 0 15.785 -3.358 21.213 -8.787 C 56.643 45.784 60 38.284 60 30 c 0 -8.271 -3.347 -15.76 -8.762 -21.187"
+          transform="translate(50 50)"
+        />
+        <g xmlns="http://www.w3.org/2000/svg" transform="translate(70 67)">
+          <mask id="circle-b" attr.fill="{{ panFill }}">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#circle" />
+          </mask>
+          <use
+            attr.fill="{{ homeArrow }}"
+            fill-rule="nonzero"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xlink:href="#circle"
+          />
+          <g attr.fill="{{ panCir }}" mask='url("#circle-b")'>
+            <path d="M -7.374 -7.826 h 35 v 35 h -35 Z" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+</div>

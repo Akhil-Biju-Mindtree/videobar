@@ -1,0 +1,55 @@
+@import '_variables.scss';
+
+.mat-radio-button {
+  margin: 10px 0px !important;
+}
+
+.mat-radio-container {
+  height: 14px !important;
+  width: 14px !important;
+}
+
+.mat-radio-label-content {
+  padding-left: 6px !important;
+}
+
+.mat-radio-inner-circle {
+  background-color: $color-grey !important;
+}
+
+.mat-radio-checked .mat-radio-inner-circle {
+  transform: scale(0.7) !important;
+}
+
+.mat-radio-ripple .mat-ripple-element {
+  background-color: rgba($color-grey, 0.26) !important;
+}
+
+.mat-radio-outer-circle {
+  height: 14px !important;
+  width: 14px !important;
+  border-width: 1px !important;
+  border-color: $color-grey !important;
+}
+
+.mat-radio-inner-circle {
+  height: 14px !important;
+  width: 14px !important;
+}
+
+.mat-radio-button.mat-radio-disabled .mat-radio-label-content {
+  color: $color-bose-black-diasbled;
+}
+
+.mat-radio-button.mat-radio-disabled .mat-radio-inner-circle {
+  background-color: $color-bose-black-diasbled !important;
+}
+
+.mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle,
+.mat-radio-button.mat-radio-disabled .mat-radio-outer-circle {
+  border-color: $color-bose-black-diasbled !important;
+}
+
+.mat-radio-button.mat-radio-disabled .mat-radio-inner-circle {
+  background-color: $color-bose-black-diasbled !important;
+}

@@ -1,0 +1,39 @@
+<div>
+  <ngx-file-drop
+    appChangeBgColor
+    *ngIf="!fileSelected && !invalidFileSelected"
+    (onFileDrop)="dropped($event)"
+    (onFileOver)="fileOver($event)"
+    (onFileLeave)="fileLeave($event)"
+    [accept]="accept"
+    multiple="false"
+  >
+    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+      <div class="file-select-container">
+        <div>
+          <span class="drop-text-container"
+            >Drag and Drop or <strong style="cursor: pointer;" (click)="openFileSelector()"><u>Browse</u></strong> to
+            Upload & {{ actionText }} File</span
+          >
+        </div>
+      </div>
+    </ng-template>
+  </ngx-file-drop>
+  <div *ngIf="fileSelected || invalidFileSelected" class="drop_zone_file_selected">
+    <div
+      [ngClass]="invalidFileSelected ? 'drop_zone_content_invalid_file_selected' : 'drop_zone_content_file_selected'"
+    >
+      <div [ngClass]="invalidFileSelected ? 'file_name_with_error' : 'only_file_name'">
+        <div class="filename-content">
+          {{ fileName }}
+        </div>
+        <div [ngClass]="invalidFileSelected ? 'filename-clear-div_invalid' : 'filename-clear-div'">
+          <img class="close-icon" [src]="closeIcon" (click)="delete()" />
+        </div>
+      </div>
+      <div *ngIf="invalidFileSelected" class="invalid-msg-container">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

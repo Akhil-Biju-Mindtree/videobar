@@ -1,0 +1,16 @@
+<div class="side-nav-content-title content-border" ngClass.xs="usb-size-padding" appHideInWeb>
+  <h4>Administration</h4>
+</div>
+<div class="content-section " [ngClass]="{ 'web-app-margin': !isDesktopApp }">
+  <div class="app-logo">
+    <img [src]="appInfo.BOSE_LOGO" height="96px" width="96px" />
+  </div>
+  <h1 appHideInWeb>
+    {{ appInfo.APP_NAME }}
+  </h1>
+  <h1 appHideInUsbApp>
+    {{ appInfo.APP_NAME_WEB }}
+  </h1>
+</div>
+<app-login></app-login>
+<div class="copyright-text" ngClass.lg="copyright-text-fullsize" ngClass.xl="copyright-text-fullsize"><span> Copyright © 2020 Bose Corporation</span></div>

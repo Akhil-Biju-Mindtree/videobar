@@ -1,0 +1,37 @@
+@import 'variables.scss';
+
+.slider-with-text {
+  padding-left: 16px;
+  display: flex;
+  align-items: flex-start;
+
+  .slider-control {
+    position: relative;
+  }
+}
+
+.slider-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.slider-label {
+  padding-top: 14px;
+  text-align: left;
+  color: #525252;
+  width: 136px;
+}
+
+.numeric-text {
+  padding-top: 5px;
+  padding-right: 3px;
+}
+
+.padding-left-change {
+  padding-left: 7px;
+}
+
+.label-disabled {
+  color: $color-light-grey-blur;
+}

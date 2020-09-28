@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.inner-container-icon {
+  padding: 24px 16px 16px 66px !important;
+  position: relative;
+  max-height: 475px;
+}
+
+.inner-container {
+  padding: 4px 2px 16px 31px !important;
+  position: relative;
+}
+
+.dialog-content {
+  color: $font-color-dark-grey;
+  text-align: left;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.dialog-action-icon {
+  display: flex;
+  margin-top: 31px;
+  justify-content: flex-end;
+}
+
+.dialog-action {
+  display: flex;
+  margin-top: 19px;
+  margin-right: 14px;
+  justify-content: flex-end;
+}
+
+.refute-button {
+  right: 8px;
+}
+
+.title-inner-container {
+  padding: 26px 16px 0px 32px !important;
+}
+.title-inner-container-icon {
+  padding: 16px 16px 0px 12px !important;
+}
+.icon-container {
+  width: 39px;
+  height: 28px;
+}
+
+.icon-holder {
+  display: inline;
+  margin-right: 10px;
+}
+.text-holder {
+  display: inline;
+}

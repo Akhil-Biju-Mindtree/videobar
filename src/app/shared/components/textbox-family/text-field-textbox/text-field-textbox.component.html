@@ -1,0 +1,16 @@
+<app-textbox
+  [value]="value"
+  [parentForm]="parentForm"
+  [uuid]="uuid"
+  [showError]="showError"
+  [containerWidthStyle]="containerWidthStyle"
+  [inputType]="inputType"
+  [isRequired]="isRequired"
+  (valueChange)="onValueChange($event)"
+  (enterKeyEvent)="submitValueOnKeyPress()"
+  [hasKeyEvents]="hasKeyEvents"
+  [errorMessage]="errorMessage"
+  [maxLength]="maxLength"
+  [regEx]="regEx"
+>
+</app-textbox>

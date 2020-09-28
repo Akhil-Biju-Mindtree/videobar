@@ -1,0 +1,92 @@
+<div class="autoframing-container" [ngClass]="{ 'web-autoframing-container': !isDesktopApp }">
+  <div class="autoframe-status-container">
+    <div class="header-component autoframe">
+      <span [ngClass]="{ 'label-disabled': !cameraEnabled }">Autoframe Access</span>
+    </div>
+    <div class="status-value-component">
+      <div class="status-toggle-container">
+        <span class="status-toggle-span">
+          <mat-slide-toggle
+            [disabled]="!cameraEnabled"
+            [checked]="toggleChecked"
+            (change)="onToggleChange($event)"
+          ></mat-slide-toggle>
+        </span>
+        <span class="status-toggle-text">{{ toggleText }}</span>
+      </div>
+      <div class="status-button-container">
+        <span class="status-button-span">
+          <app-fab-smart-button
+            flex
+            [fabMiniStyles]="fabMiniStyles"
+            [elementID]="elementID"
+            [isDisabled]="disable"
+            (clickEmitter)="updateUIOnChangeOfAutoframe($event)"
+          >
+          </app-fab-smart-button>
+        </span>
+        <span [ngClass]="disable ? 'status-button-text-disbaled' : 'status-button-text'">{{ autoframeText }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="autoframe-headroomadjustment-container">
+    <div class="header-component">
+      <span [ngClass]="{ 'label-disabled': disable || !autoFrameOn }">Headroom Adjustment</span>
+    </div>
+    <div class="value-component">
+      <app-radio-button-vertical
+        [uuid]="headroomAdjustmentUUID"
+        [allValues]="headroomAdjustmentArray"
+        [disable]="disable || !autoFrameOn"
+      ></app-radio-button-vertical>
+    </div>
+  </div>
+  <div class="autoframe-zoomspeed-container">
+    <div class="header-component">
+      <span [ngClass]="{ 'label-disabled': disable || !autoFrameOn }">Zoom Speed</span>
+    </div>
+    <div class="value-component">
+      <app-radio-button-vertical
+        [uuid]="zoomSpeedUUID"
+        [allValues]="speedArray"
+        [disable]="disable || !autoFrameOn"
+      ></app-radio-button-vertical>
+    </div>
+  </div>
+  <div class="autoframe-zoomspeed-container">
+    <div class="header-component">
+      <span [ngClass]="{ 'label-disabled': disable || !autoFrameOn }">Pan/Tilt Speed</span>
+    </div>
+    <div class="value-component">
+      <app-radio-button-vertical
+        [uuid]="panTiltSpeedUUID"
+        [allValues]="speedArray"
+        [disable]="disable || !autoFrameOn"
+      ></app-radio-button-vertical>
+    </div>
+  </div>
+  <div class="autoframe-zoomspeed-container">
+    <div class="header-component">
+      <span [ngClass]="{ 'label-disabled': disable || !autoFrameOn }">Autoframe Border Size</span>
+    </div>
+    <div class="value-component">
+      <app-radio-button-vertical
+        [uuid]="borderSizeUUID"
+        [allValues]="sizeArray"
+        [disable]="disable || !autoFrameOn"
+      ></app-radio-button-vertical>
+    </div>
+  </div>
+
+  <div class="video-bbox-overlay" [ngClass.xs]="{ 'video-bbox-overlay-web': !isDesktopApp }">
+    <div class="video-bbox-label">
+      <span>Autoframe Information</span>
+    </div>
+    <div class="bbox-toggle-container">
+      <span class="bbox-toggle-span">
+        <mat-slide-toggle [checked]="osdBboxChecked" (change)="onBboxToggleChange()"></mat-slide-toggle>
+      </span>
+      <span class="bbox-toggle-text">{{ bboxtoggleText }}</span>
+    </div>
+  </div>
+</div>

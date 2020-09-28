@@ -1,0 +1,96 @@
+@import '_variables.scss';
+
+.customMenu + * .cdk-overlay-pane > div.mat-menu-panel {
+  box-shadow: unset;
+  border-radius: 0px 0px 16px 16px;
+
+  div.mat-menu-content {
+    background-color: $color-concrete;
+    width: 148px;
+
+    button.mat-menu-item {
+      color: $font-color-black;
+      font-size: 12px;
+      line-height: normal;
+      border-radius: 16px;
+      height: 24px;
+      margin: 0px auto 0px auto;
+      width: 132px;
+      padding: 0px 15px 0px 15px;
+    }
+
+    button.mat-menu-item:hover:not([disabled]) {
+      background-color: $color-white;
+    }
+  }
+}
+
+.customListMenu + * .cdk-overlay-pane > div.mat-menu-panel {
+  box-shadow: unset;
+  border-radius: 4px;
+  max-height: 174px;
+  margin-top: -4px;
+
+  @supports (-ms-ime-align: auto) or (-moz-appearance:none){
+    overflow-x: hidden;
+    div.mat-menu-content {
+          width: 224px !important;
+         
+    }
+  }
+  
+
+  div.mat-menu-content {
+    background-color: $color-concrete;
+    width: 207px;
+    button.mat-menu-item {
+      color: $font-color-black;
+      font-size: 11px;
+      line-height: normal;
+      height: 28px;
+      margin: 0px auto 0px auto;
+      padding: 0 4px;
+      border-radius: 4px;
+      margin: 0px 5px;
+      width: 95%;
+    }
+
+    button.mat-menu-item:hover:not([disabled]) {
+      background-color: $color-white;
+      border-radius: 4px;
+    }
+  }
+}
+
+.hamburgerMenu + * .cdk-overlay-pane {
+  margin-left: -99px !important;
+}
+
+.hamburgerMenu + * .cdk-overlay-pane > div.mat-menu-panel {
+  box-shadow: unset;
+  border-radius: 10px;
+  @supports (-ms-ime-align: auto){
+    overflow: hidden !important;
+  }
+  div.mat-menu-content {
+    button.mat-menu-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0px;
+      margin: 10px 10px 10px 10px;
+      line-height: unset;
+      width: auto;
+      height: auto;
+    }
+    button.mat-menu-item:first-child {
+      margin-top: 0px;
+    }
+    button.mat-menu-item:last-child {
+      margin-bottom: 0px;
+    }
+    button.mat-menu-item:hover:not([disabled]) {
+      background-color: unset;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import 'variables.scss';
+.notification-content {
+  display: inline-block;
+  min-height: 18px;
+  max-width: 345px;
+  padding-right: 23px;
+  vertical-align: middle;
+}
+
+.notification-close-div {
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  padding: 4px 3px 3px 4px;
+  .close-icon {
+    pointer-events: auto;
+  }
+}
+
+.close-icon {
+  height: 9px;
+  width: 9px;
+  filter: invert(1);
+  cursor: pointer;
+}
+
+

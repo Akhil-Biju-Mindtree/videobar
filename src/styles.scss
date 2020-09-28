@@ -1,0 +1,359 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'variables.scss';
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+@font-face {
+  font-family: gotham-book;
+  src: url(assets/fonts/gothamssm/GothamSSm-Book.otf) format('opentype');
+}
+
+@font-face {
+  font-family: gotham-bold;
+  src: url(assets/fonts/gothamssm/GothamSSm-Bold.otf) format('opentype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  font-family: gotham-book, Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: normal;
+  overflow: hidden;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+
+  .font-bold {
+    font-family: gotham-bold;
+  }
+
+  input {
+    font-family: gotham-book, Roboto, 'Helvetica Neue', sans-serif;
+    border: 1px solid transparent !important;
+  }
+
+  h1 {
+    font-family: gotham-bold;
+    font-weight: bold;
+    font-size: 20px;
+    color: $font-color-black;
+    line-height: 22.5px;
+  }
+
+  h3 {
+    font-size: 17px;
+    color: $font-color-black;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: gotham-bold;
+    color: $color-dark-grey;
+    line-height: 1.5;
+  }
+
+  h6 {
+    font-size: 11px;
+    font-weight: bold;
+    font-family: gotham-bold;
+    color: $font-color-black;
+    line-height: 1.5;
+  }
+
+  p {
+    color: $font-color-dark-grey;
+  }
+
+  button {
+    width: auto;
+    height: 20px;
+    border-radius: 20px;
+    margin-right: 12px;
+    border-style: none;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $color-concrete;
+    color: $color-grey;
+    font-size: 9px;
+    font-family: gotham-bold;
+    border: 1px solid transparent !important;
+  }
+
+  hr {
+    border: none;
+    height: 2.3px;
+    background-color: $color-bosewhite;
+    margin-left: -2px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+  }
+
+  .url-link {
+    color: $color-light-blue;
+    cursor: pointer;
+    background-color: $color-white;
+  }
+}
+
+.active-link {
+  background-color: $color-concrete;
+}
+
+.active-link:hover {
+  background-color: $color-concrete !important;
+}
+
+.font-inactive-link {
+  color: $color-bosewhite;
+}
+
+.img-container {
+  display: flex;
+  height: 32px;
+}
+
+.sidenav-img {
+  margin: auto 10px;
+  width: 22px;
+  height: 23px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.sidenav-label {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sidenav-img-usb {
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.button-container {
+  cursor: pointer;
+  font-size: 14px;
+
+  &.bottom-icon-container {
+    display: flex;
+    a {
+      height: 32px;
+      display: flex;
+      .ic-bottom {
+        filter: invert(0.7);
+        top: 8px;
+      }
+    }
+  }
+}
+
+button.normal-button {
+  background-color: $color-concrete;
+  height: 24px;
+  border-radius: 16px;
+  font-size: 12px;
+  text-align: center;
+  color: $color-grey;
+  line-height: 2;
+  padding: 0px 20px;
+  font-family: gotham-bold;
+}
+
+button.normal-button:hover {
+  background-color: $background-color-brown-grey;
+}
+
+button.primary-button {
+  background-color: $color-dark-grey;
+  height: 24px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: $color-white;
+  line-height: 2;
+  padding: 0px 20px;
+  font-family: gotham-bold;
+}
+
+button.primary-button:hover {
+  background-color: $background-color-brown-grey;
+}
+
+.mat-button[disabled][disabled] {
+  color: $color-brown-grey;
+  background-color: $color-very-light-pink-two;
+}
+
+.camera-settings-video-stream {
+  .video-stream {
+    margin: 0px !important;
+    height: 176px !important;
+    width: 312px !important;
+    padding-top: 0px !important;
+  }
+}
+
+.side-nav-content-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  padding-left: 56px;
+  padding-right: 10px;
+  align-items: center;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='password'] {
+  height: 28px;
+  border-radius: 4px;
+  background-color: $color-concrete;
+  border: 0px solid;
+  /* font Styles inside Text Field */
+  font-size: 11px;
+  color: $font-color-black;
+  line-height: 1.64;
+  padding: 0px 4px 0px 8px;
+}
+
+input[type='password'] {
+  font-size: 20px !important;
+}
+
+.dialog-title {
+  display: flex;
+  color: $font-color-black;
+  font-size: 11px;
+}
+
+.error-message {
+  font-size: 9px;
+  color: $bright-red;
+  padding-left: 4px;
+}
+
+.password-reset-container {
+  .error-message {
+    padding-left: 8px !important;
+    padding-top: 3px !important;
+  }
+}
+
+.mat-radio-checked {
+  .bold-mat-radio-label {
+    font-weight: bold;
+  }
+}
+
+.text-field-invalid {
+  input {
+    border: 0.5px solid $bright-red !important;
+  }
+}
+
+.ngx-file-drop__drop-zone {
+  height: 72px !important;
+  width: 374px !important;
+  margin: 0px !important;
+  border: 1px dashed $very-light-pink-nine !important;
+  border-radius: 4px !important;
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+.ngx-file-drop__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 72px !important;
+  margin: auto !important;
+  text-align: center !important;
+  color: inherit !important;
+}
+
+.usb-size-padding {
+  padding-left: 16px !important;
+}
+
+.full-screen-padding {
+  padding-left: 56px;
+}
+
+.scroll-container {
+  height: calc(100vh - 77px) !important;
+  overflow-y: auto;
+}
+
+a:focus {
+  outline: $border-blue auto 1px !important;
+}
+
+mat-select:focus {
+  outline: 0;
+  box-shadow: 0px 0px 1px 1px $border-blue !important;
+}
+
+input:focus,
+button:focus {
+  border: 1px solid $border-blue !important;
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+.selectbox-container img {
+  opacity: 0.3 !important;
+}
+
+.cdk-overlay-pane > div.mat-select-panel {
+  box-shadow: unset;
+  border-radius: 0px 0px 16px 16px;
+
+  div.selectbox-container {
+    background-color: $color-concrete;
+    width: 148px;
+
+    mat-select {
+      color: $font-color-black;
+      font-size: 12px;
+      line-height: normal;
+      border-radius: 16px;
+      height: 24px;
+      margin: 0px auto 0px auto;
+      width: 132px;
+      padding: 0px 15px 0px 15px;
+    }
+
+    mat-select.mat-menu-item:hover:not([disabled]) {
+      background-color: $color-white;
+    }
+  }
+}
+.text-select {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+*:focus {
+  outline-width: 1px;
+  outline-color: $border-blue;
+}

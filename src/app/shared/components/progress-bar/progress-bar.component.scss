@@ -1,0 +1,39 @@
+@import 'variables.scss';
+.progress-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  width: 424px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 182px;
+  margin-right: 48px;
+}
+
+.progress-bar-value-container {
+  position: absolute;
+  display: flex;
+  width: 182px;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.progress-bar-value {
+  height: 12px;
+  font-size: 8px;
+  color: $color-brown-grey;
+}
+.progress-bar-value-min {
+  text-align: left;
+}
+
+.progress-bar-value-max {
+  text-align: right;
+}
+
+.progress-bar-value-active {
+  color: $font-color-black;
+}

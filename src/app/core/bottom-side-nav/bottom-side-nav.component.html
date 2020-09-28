@@ -1,0 +1,5 @@
+<div class="bottom-side-nav" [ngClass]="{ 'web-padding': !isDesktopApp }">
+  <app-admin-nav [isAdminIconHidden]="isAdminIconHidden"></app-admin-nav>
+
+  <app-settings-nav [isDeviceAttached]="isDeviceAttached" [isAdmin]="isAdmin"></app-settings-nav>
+</div>

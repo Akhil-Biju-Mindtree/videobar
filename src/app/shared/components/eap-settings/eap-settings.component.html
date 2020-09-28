@@ -1,0 +1,79 @@
+<div class="eap-password">
+  <div class="eap-method setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>EAP Method</label>
+    <app-select-dropdown
+      *ngIf="isWireless"
+      [uuid]="eapSettings[0].uuid"
+      [parentForm]="parentForm"
+      [itemList]="eapMethodList"
+      [currentValue]="eapSettings[0].initialValue"
+      [placeholder]="eapSettings[0].labelValue"
+    ></app-select-dropdown>
+    <app-select-dropdown
+      *ngIf="!isWireless"
+      appAutoFocus
+      [uuid]="eapSettings[0].uuid"
+      [parentForm]="parentForm"
+      [itemList]="eapMethodList"
+      [currentValue]="eapSettings[0].initialValue"
+      [placeholder]="eapSettings[0].labelValue"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="eap-phase-authentication setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>Phase 2 Authentication</label>
+    <app-select-dropdown
+      [uuid]="eapSettings[1].uuid"
+      [parentForm]="parentForm"
+      [itemList]="eapPhaseAuthenticationList"
+      [currentValue]="eapSettings[1].initialValue"
+      [placeholder]="eapSettings[1].labelValue"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="eap-ca-certificate setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>CA Certificate</label>
+    <app-select-dropdown
+      [uuid]="eapSettings[2].uuid"
+      [parentForm]="parentForm"
+      [itemList]="eapCertificateList"
+      [currentValue]="eapSettings[2].initialValue"
+      [placeholder]="eapSettings[2].labelValue"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="eap-identity setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>Identity</label>
+    <app-text-field-textbox
+      [parentForm]="parentForm"
+      [uuid]="eapSettings[3].uuid"
+      [isRequired]="true"
+    ></app-text-field-textbox>
+  </div>
+
+  <div class="eap-identity setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>Anonymous Identity</label>
+    <app-text-field-textbox
+      [parentForm]="parentForm"
+      [uuid]="eapSettings[4].uuid"
+      [isRequired]="false"
+    ></app-text-field-textbox>
+  </div>
+
+  <div class="eap-password setting-row" [ngClass]="{ 'setting-row-wireless': isWireless }">
+    <label>Password</label>
+    <app-textbox
+      [ngClass]="{ 'eap-password-wireless': isWireless }"
+      [parentForm]="parentForm"
+      [containerWidthStyle]="containerWidthStyle"
+      [uuid]="eapSettings[5].uuid"
+      [isRequired]="true"
+      [value]="passwordValue"
+      [inputType]="isPasswordShown ? 'text' : 'password'"
+    ></app-textbox>
+  </div>
+
+  <div class="checkbox-container" *ngIf="!isWireless">
+    <mat-checkbox (change)="onCheckShowPassword()">Show password</mat-checkbox>
+  </div>
+</div>

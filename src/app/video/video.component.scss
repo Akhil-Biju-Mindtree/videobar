@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+.video-container {
+  .camera-settings-video-stream {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bosewhite;
+    height: 205px;
+    width: 440px;
+    border: solid 1px $color-very-light-grey;
+
+    .video-stream-view {
+      width: 312px;
+      height: 176px;
+    }
+  }
+
+  .camera-settings-video-controls {
+    overflow: auto;
+    height: calc(100vh - 285px);
+  }
+
+  .camera-setting-content-web {
+    min-width: 428px;
+  }
+}
+
+.video-full-size-margin{
+  margin-left: 40px;
+}

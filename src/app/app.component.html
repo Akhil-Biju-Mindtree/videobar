@@ -1,0 +1,37 @@
+<mat-drawer-container>
+  <mat-drawer
+    *ngIf="(isDesktopApp && !(isFullScreen | async)) || (!isDesktopApp && (isAuthenticated | async))"
+    class="vertical-common"
+    mode="side"
+    opened
+    [ngClass.lt-lg]="{ 'vertical-half-and-usb': true, 'vertical-usb': isDesktopApp, 'safari-browser': isSafari }"
+    [ngClass.lg]="{ 'vertical-fullsize': true, 'vertical-usb': isDesktopApp }"
+    [ngClass.xl]="{ 'vertical-fullsize': true, 'vertical-usb': isDesktopApp }"
+    disableClose
+  >
+    <div class="scroll-content" [ngClass.lt-lg]="{ 'safari-browser-side-nav': isSafari }">
+      <app-side-navbar></app-side-navbar>
+      <app-bottom-side-nav [isDeviceAttached]="isDeviceAttached" [isAdminIconHidden]="isAdminIconHidden">
+      </app-bottom-side-nav>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content
+    [ngClass]="{
+      'mat-drawer-content-web': !isDesktopApp,
+      'microphone-overflow-scroll': !isDesktopApp && router.url.includes(microphoneRoute),
+      'overflow-scroll-login': !isDesktopApp && (router.url.includes(loginRoute) || router.url.includes(settingsRoute))
+    }"
+  >
+    <div
+      class="container"
+      [ngClass]="{
+        'status-container': !isDesktopApp && router.url.includes(statusRoute),
+        'login-container': !isDesktopApp && (router.url.includes(loginRoute) || router.url.includes(settingsRoute)),
+        'configuration-container': !isDesktopApp && router.url.includes(configurationRoute),
+        'network-container': !isDesktopApp && router.url.includes(networkRoute)
+      }"
+    >
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

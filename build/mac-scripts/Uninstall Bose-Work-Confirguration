@@ -1,0 +1,25 @@
+#!/bin/sh
+echo "Executing uninstall-staller script for custom installer"
+
+sudo rm -Rfv /Applications/Bose-Work-Configuration.app
+sudo rm -Rfv ~/Applications/Bose-Work-Configuration.app
+
+# Deleting App components from Application folder.
+echo "Deleting Bose-Work-Configration Logs"
+logsPath=~/Library/Logs/Bose-Work-Configuration
+if [ -d "$logsPath" ]
+then
+rm -rf ~/Library/Logs/Bose-Work-Configuration
+echo "***Deleted Bose-Work-Configration Logs Successfully***"
+fi
+
+echo "Deleting Bose-Work-Configuration Application Support"
+applicationSupportPath=~/Library/Application\ Support/Bose-Work-Configuration
+if [ -d "$applicationSupportPath" ]
+then
+rm -rf ~/Library/Application\ Support/Bose-Work-Configuration
+echo "***Deleted Bose-Work-Configuration Application Support Successfully***"
+fi
+
+echo "Finished:uninstallation"
+exit 0

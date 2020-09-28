@@ -1,0 +1,16 @@
+.bottom-side-nav {
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  bottom: 0px;
+  padding-bottom: 10px;
+  width: 100%;
+  @media screen and (max-height: 450px) {
+    position: unset;
+    padding-bottom: 5px;
+  }
+}
+
+.web-padding {
+  padding-bottom: 40px;
+}

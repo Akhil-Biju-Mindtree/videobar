@@ -1,0 +1,23 @@
+{
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabsWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "bracketSpacing": true,
+  "comma-spacing": {
+    "before": false,
+    "after": true
+  },
+  "comma-dangle": [
+    2,
+    {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline"
+    }
+  ],
+  "trailingComma": "all"
+}

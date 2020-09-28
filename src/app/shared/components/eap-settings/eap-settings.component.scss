@@ -1,0 +1,27 @@
+label {
+  margin-bottom: 6px;
+}
+.checkbox-container {
+  padding-top: 8px;
+}
+.setting-row {
+  margin-top: 14px;
+}
+.eap-password {
+  width: 224px;
+}
+.setting-row-wireless {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  margin-top: 26px;
+  label {
+    width: 136px;
+    margin-right: 24px;
+    margin-top: 5px;
+  }
+}
+.eap-password-wireless {
+  margin-right: 15px;
+  width: 214px;
+}

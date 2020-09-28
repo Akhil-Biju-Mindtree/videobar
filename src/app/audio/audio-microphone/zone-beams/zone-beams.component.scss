@@ -1,0 +1,55 @@
+@import 'variables.scss';
+.overlay-container {
+  position: absolute;
+  z-index: 11;
+  top: 80px;
+  canvas {
+    z-index: 12;
+  }
+}
+.beam-container {
+  .full-screen-view {
+    top: 0px;
+  }
+}
+
+.full-screen-view {
+  width: 735px;
+  top: -20px;
+}
+.xs-web-screen {
+  width: 428px;
+}
+.md-lg-web-screen {
+  width: 486px;
+  top: -13px;
+}
+.xl-web-screen {
+  width: 735px;
+  top: -20px;
+}
+
+.full-screen-view-base {
+  width: 734px;
+  height: 125.627px;
+  top: 378px;
+}
+.xs-web-screen-base {
+  width: 428px;
+  top: 350px;
+  height: 56px;
+}
+.md-lg-web-screen-base {
+  width: 486px;
+  top: 383px;
+  height: 56px;
+}
+.xl-web-screen-base {
+  width: 735px;
+  top: 501px;
+  height: 125.627px;
+}
+
+.zero-padding{
+  padding-left:0px !important;
+}

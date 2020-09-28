@@ -1,0 +1,64 @@
+<div class="system-container">
+  <div class="control radio-control">
+    <label class="label-text">GPI Active</label>
+    <app-radio-button-horizontal
+      [isLabelBold]="true"
+      [uuid]="uuid.GPI_ACTIVE"
+      [allValues]="gpiRadio"
+    ></app-radio-button-horizontal>
+  </div>
+  <div class="control dropdown-control">
+    <label class="label-text">Time Zone</label>
+    <app-select-dropdown
+      [uuid]="uuid.TIME_ZONE"
+      [itemList]="timezoneList"
+      (sendDataEvent)="updateTimeZone($event)"
+      [currentValue]="currentTimeZone"
+      [placeholder]="currentTimeZone"
+    ></app-select-dropdown>
+  </div>
+
+  <div class="control textbox-control">
+    <label class="label-text label-ntp">NTP Server</label>
+    <app-text-field-textbox
+      [uuid]="uuid.NTP_SERVER"
+      [value]="ntpServerVal"
+      (valueChange)="ntpServerChange($event)"
+      [isRequired]="false"
+    ></app-text-field-textbox>
+  </div>
+  <div class="control toggle-button">
+    <label class="label-text">Low Power Mode</label>
+    <app-toggle-button [uuid]="uuid.LOW_POWER_MODE_ENABLE"></app-toggle-button>
+  </div>
+  <div class="control button-control">
+    <h6>Download Logs</h6>
+    <button mat-button class="normal-button button-width" (click)="downloadLogs()">Save As..</button>
+  </div>
+  <div class="control button-control">
+    <h6>Device Password</h6>
+    <button mat-button class="normal-button button-width" (click)="changePassword()">Change</button>
+  </div>
+  <div class="content-section">
+    <h6 class="restore-margin">Restore All Settings to Default</h6>
+    <div class="content">
+      The device will be restored to factory settings and all <br />
+      customization will be lost.
+    </div>
+    <div class="content-button-restore">
+      <button mat-button class="normal-button restore-btn-width button-padding" (click)="restoreDefaults()">
+        Restore Factory Defaults
+      </button>
+    </div>
+  </div>
+  <div class="content-section" [ngClass]="{'web-content-section': !isDesktopApp}">
+    <h6>Restart Device</h6>
+    <div class="content">
+      The device will immediately restart and this application will return <br />
+      to the Home screen.
+    </div>
+    <div class="content-button">
+      <button mat-button class="normal-button button-width" (click)="restartDevice()">Restart Now</button>
+    </div>
+  </div>
+</div>

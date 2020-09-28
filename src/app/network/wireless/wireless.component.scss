@@ -1,0 +1,47 @@
+@import 'variables.scss';
+
+.wireless-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 80px);
+}
+
+.ip-settings-container {
+  display: flex;
+  flex-flow: column;
+  //margin-top: 5px
+}
+
+.network-container {
+  display: flex;
+  padding-top: 6px;
+
+  .network-label {
+    width: 152px;
+    color: $font-color-dark-grey;
+  }
+
+  .network-sub-container {
+    flex: 1 0 100px;
+
+    .automatic-connect-checkbox {
+      padding-top: 8px;
+      //margin-bottom: 10px;
+      overflow: hidden;
+    }
+  }
+}
+
+.network-container-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.refresh-btn {
+  margin-left: 150px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.refresh-btn:hover {
+  background-color: $background-color-brown-grey;
+}

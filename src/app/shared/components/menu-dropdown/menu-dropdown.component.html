@@ -1,0 +1,32 @@
+<button
+  *ngIf="!isListDropDown"
+  mat-button
+  #trigger="matMenuTrigger"
+  [ngClass]="{ isCustomMenuOpened: trigger.menuOpen === true }"
+  [matMenuTriggerFor]="menuList"
+  class="normal-button customButton"
+  [disabled]="isDisabled"
+>
+  {{ buttonText }}
+</button>
+
+<div
+  class="textbox-container"
+  (click)="onDropdownClick(trigger.menuOpen)"
+  #trigger="matMenuTrigger"
+  [matMenuTriggerFor]="menuList"
+  *ngIf="isListDropDown"
+>
+  <input class="input-textbox" type="text" readonly="readonly" [value]="itemSelected" />
+  <img class="drop-down-arrow" [src]="downArrowIcon" />
+</div>
+
+<mat-menu xPosition="after" #menuList="matMenu" [backdropClass]="isListDropDown ? 'customListMenu' : 'customMenu'">
+  <button mat-menu-item *ngFor="let item of itemList" (click)="saveSelection(item)">
+    <span class="displaylist">{{ item.label }}</span>
+    <ng-container *ngIf="isListDropDown">
+      <span class="second-icon-span" *ngIf="item.secondIcon"> <img [src]="item?.secondIcon"/></span>
+      <span class="first-icon-span" *ngIf="item.firstIcon"> <img [src]="item?.firstIcon"/></span>
+    </ng-container>
+  </button>
+</mat-menu>

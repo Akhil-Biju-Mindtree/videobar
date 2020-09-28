@@ -1,0 +1,3 @@
+<div [ngStyle]="menuStyle" class="{{ contextMenuConstant.contextMenuClass }}">
+  <div *ngFor="let item of menuItems" (click)="selectItem(item)" class="menu-item">{{ item.text }}</div>
+</div>

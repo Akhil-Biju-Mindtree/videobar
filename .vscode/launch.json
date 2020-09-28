@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Electron Main Process",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/electron/main.ts",
+      "outFiles": [
+        "${workspaceRoot}/electron/main.js",
+      ],
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      },
+      "args": [
+        "--serve"
+      ],
+      "runtimeArgs": [
+        ".",
+      ],
+      "outputCapture": "std",
+      "preLaunchTask": "npm: debug:server",
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+@import 'variables.scss';
+.overlay-container {
+  position: absolute;
+  z-index: 12;
+  top: 80px;
+  canvas {
+    z-index: 12;
+  }
+}
+.overlay-container-not-selected {
+  position: absolute;
+  z-index: 10;
+  top: 80px;
+  canvas {
+    z-index: 12;
+  }
+}
+
+.delete-button {
+  position: absolute;
+  z-index: 17;
+  cursor: pointer;
+}
+
+.rounded-div {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.small-screen-delete {
+  top: 328px !important;
+  left: 208px !important;
+}
+.xs-web-screen-delete {
+  left: 202.8px !important;
+  top: 323px !important;
+}
+.md-lg-web-screen-delete {
+  left: 230.5px !important;
+  top: 356px !important;
+}
+.xl-web-screen-delete {
+  left: 355.1px !important;
+  top: 496px !important;
+}
+
+.beam-container {
+  .full-screen-view {
+    top: 0px;
+  }
+}
+.zero-padding{
+  padding-left:0px !important;
+}

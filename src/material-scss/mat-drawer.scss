@@ -1,0 +1,25 @@
+.mat-drawer-container {
+  min-height: 100%;
+}
+
+.mat-drawer-inner-container {
+  height: auto !important;
+  margin-top: 18px !important;
+  overflow: hidden !important;
+  @media screen and (max-height: 450px) {
+    width: calc(150% + 5%) !important;
+    height: calc(100vh - 17px) !important;
+    margin-top: unset !important;
+    overflow-y: auto !important;
+    padding-top: 18px !important;
+    visibility: hidden;
+  }
+  &:hover {
+    width: 100% !important;
+    visibility: visible;
+  }
+  .scroll-content {
+    width: 100%;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,43 @@
+@import '_variables.scss';
+
+.mat-slide-toggle-thumb {
+    height: 17px !important;
+    width: 17px !important;
+    border-radius: 50px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: $color-bosewhite;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: $color-black-two;
+}
+
+.mat-slide-toggle-thumb-container {
+    width: 17px !important;
+    height: 17px !important;
+    top: 1px !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-ripple-element {
+    background-color: $font-color-black;
+}
+
+.mat-slide-toggle-bar {
+    width: 34px !important;
+    height: 19px !important;
+    border-radius: 50px !important;
+    background-color: $color-very-light-grey;
+}
+
+.mat-slide-toggle-thumb {
+    background-color: $color-brown-grey;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-slide-toggle-persistent-ripple {
+    width: unset !important;
+    height: unset !important;
+}

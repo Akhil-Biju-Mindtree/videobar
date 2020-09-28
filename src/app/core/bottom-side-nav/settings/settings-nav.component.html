@@ -1,0 +1,47 @@
+<div
+  appHideInWeb
+  *ngIf="!isAdmin && shownBackBtn"
+  class="button-container-settings user img-container back-btn-container"
+>
+  <a
+    (click)="navigateHomeScreen()"
+    [matTooltip]="backBtnToolTip"
+    [matTooltipDisabled]="tooltipDisable"
+    [matTooltipPosition]="toolTipPosition"
+    matTooltipClass="navigation-tooltip navigation-tooltip-back"
+    [matTooltipShowDelay]="toolTipDelay"
+  >
+    <img [src]="backBtnIcon" [ngClass]="{ 'back-btn': !isDeviceAttached }" />
+  </a>
+</div>
+<div *ngIf="showSettingIcon || !isDesktopApp" routerLinkActive="nav-icon-dark">
+  <div
+    class="user"
+    [ngClass]="{
+      'bottom-margin': !isDesktopApp,
+      'button-container-settings': isDeviceAttached || !isDesktopApp,
+      'user-device-detached': !isDeviceAttached
+    }"
+  >
+    <a
+      routerLink="/settings"
+      matTooltip="Settings"
+      [matTooltipPosition]="toolTipPosition"
+      matTooltipClass="navigation-tooltip"
+      [matTooltipShowDelay]="toolTipDelay"
+      [matTooltipDisabled]="tooltipDisable"
+    >
+      <div class="img-container">
+        <img
+          [src]="settingsIcon"
+          class="ic-setting sidenav-img"
+          ngClass.lg="sidenav-img-full-size"
+          ngClass.xl="sidenav-img-full-size"
+        />
+        <span class="sidenav-label font-inactive-link" ngClass.lt-lg="sidenav-label-hide">
+          Settings
+        </span>
+      </div>
+    </a>
+  </div>
+</div>

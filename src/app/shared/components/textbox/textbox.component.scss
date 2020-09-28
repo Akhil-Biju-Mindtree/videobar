@@ -1,0 +1,48 @@
+@import 'variables.scss';
+
+.textbox-container {
+  border-radius: 4px;
+
+  .error-state {
+    border: 0.5px solid $bright-red !important;
+  }
+
+  input[type='text']:disabled {
+    background-color: $creamy-white;
+    color: $color-brown-grey;
+  }
+
+  input[type='number']:disabled {
+    background-color: $creamy-white;
+    color: $color-brown-grey;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.error-message {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 9px;
+  color: $bright-red;
+}
+
+input {
+  width: 100%;
+}
+
+.error-spacing {
+  margin-bottom: 11px;
+  position: relative;
+}
+
+.text-allign {
+  text-align: center;
+  padding: 0px !important;
+}

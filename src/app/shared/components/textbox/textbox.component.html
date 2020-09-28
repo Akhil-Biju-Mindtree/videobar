@@ -1,0 +1,15 @@
+<div [ngClass]="{ 'error-spacing': isInValid() }">
+  <div class="textbox-container" [ngStyle]="containerWidthStyle">
+    <input
+      [formControl]="formControl"
+      [type]="inputType"
+      (focusout)="updateValueChange()"
+      [ngClass]="{ 'error-state': isInValid(), 'text-allign': isTextAllign }"
+      maxlength="{{ maxLength }}"
+      (keydown.enter)="submitValueOnKeyPress()"
+    />
+  </div>
+  <div *ngIf="isInValid()" class="error-message">
+    {{ errorMessage ? errorMessage : defaultErrorMessage }}
+  </div>
+</div>

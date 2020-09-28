@@ -1,0 +1,17 @@
+<div class="progress-bar-container">
+<div>
+  <label>{{label}}</label>
+</div>
+<div class="progress-bar">
+  <mat-progress-bar
+  mode="determinate"
+  [value]="value"
+  >
+  </mat-progress-bar>
+  <div class="progress-bar-value-container">
+    <span class="progress-bar-value progress-bar-value-min" [ngClass]="{'progress-bar-value-active' : value==='0'}">0</span>
+    <span class="progress-bar-value progress-bar-value-max" [ngClass]="{'progress-bar-value-active' : value==='100'}">MAX</span>
+  </div>
+</div>
+</div>
+

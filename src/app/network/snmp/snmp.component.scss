@@ -1,0 +1,40 @@
+.snmp-form-container {
+  margin-top: 20px;
+}
+.column-two {
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
+.snmp-label {
+  width: 150px;
+  height: 28px;
+  margin-top: 6px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.button {
+  margin-left: 204px;
+  margin-top: 8px;
+  margin-bottom: 6vh;
+}
+.reset,
+.apply {
+  margin-right: 12px;
+}
+.field-with-showpasword {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-container {
+  padding-left: 150px;
+  margin-bottom: 2px;
+}

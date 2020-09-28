@@ -1,0 +1,147 @@
+<div class="main-content">
+  <div class="usb-title" ngClass.xs="usb-title-xs">
+    <h4>Status</h4>
+  </div>
+
+  <hr />
+
+  <div class="flex-container scroll-container-status" ngClass.xs="flex-container-xs">
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>{{ statusModel.systemName }}</td>
+      </tr>
+      <tr>
+        <td>Profile Name</td>
+        <td>{{ statusModel.systemProfileName }}</td>
+      </tr>
+      <tr>
+        <td>Firmware Version</td>
+        <td class="text-select">
+          {{ statusModel.systemFirmwareVersion }}
+          <button
+            *ngIf="!isUpToDate"
+            routerLink="/configuration/firmware"
+            mat-button
+            class="normal-button firmwareUpdate"
+          >
+            <span>Update Firmware</span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>Camera Version</td>
+        <td class="text-select">
+          {{ statusModel.cameraFirmwareVersion }}
+        </td>
+      </tr>
+      <tr>
+        <td>Serial Number</td>
+        <td class="text-select">{{ statusModel.systemSerialNumber }}</td>
+      </tr>
+      <tr>
+        <td>USB Audio</td>
+        <td>
+          {{ mapAudioStreamStatus() }}
+        </td>
+      </tr>
+      <tr>
+        <td>Camera</td>
+        <td>{{ statusModel.cameraState }}</td>
+      </tr>
+      <tr [ngClass]="getNetworkStatus() === connectionStatus.CONNECTED ? 'for-multiple-content' : 'for-single-content'">
+        <td>Wired Connection</td>
+        <td class="td-inner-content">
+          <div class="icon-with-span">
+            <img
+              class="ethernet-icon"
+              src="{{ ethernetIcon }}"
+              [ngClass]="
+                getNetworkStatus() === connectionStatus.CONNECTED ? 'icon-center' : 'wifi wifi-disabled icon-center'
+              "
+            />
+            {{ getNetworkStatus() }}
+          </div>
+          <div *ngIf="getNetworkIpConfig()">
+            <span class="details-heading">IP Address:</span>
+            <a
+              appHideInWeb
+              class="url-link text-select"
+              *ngIf="getNetworkIpConfig() !== defaultStaticIp"
+              target="_blank"
+              (click)="openWebApplication(getNetworkIpConfig())"
+              ><u>{{ getNetworkIpConfig() }}</u></a
+            >
+            <span appHideInWeb *ngIf="getNetworkIpConfig() === defaultStaticIp" class="text-select">{{
+              getNetworkIpConfig()
+            }}</span>
+            <span appHideInUsbApp class="text-select">{{ getNetworkIpConfig() }}</span>
+          </div>
+        </td>
+      </tr>
+
+      <tr [ngClass]="getWifiStatus() === connectionStatus.CONNECTED ? 'for-multiple-content' : 'for-single-content'">
+        <td>Wireless Connection</td>
+        <td class="td-inner-content">
+          <div class="icon-with-span">
+            <img
+              class="wifi-icon"
+              src="{{ wifiIcon }}"
+              [ngClass]="
+                getWifiStatus() === connectionStatus.CONNECTED ? 'icon-center' : 'wifi wifi-disabled icon-center'
+              "
+            />
+            {{ getWifiStatus() === connectionStatus.CONNECTED ? statusModel.wifiStatus.wifiSSID : getWifiStatus() }}
+          </div>
+          <div *ngIf="getWifiIpConfig()">
+            <span class="details-heading">IP Address:</span>
+            <a
+              appHideInWeb
+              *ngIf="getWifiIpConfig() !== defaultStaticIp"
+              class="url-link text-select"
+              target="_blank"
+              (click)="openWebApplication(getWifiIpConfig())"
+              ><u>{{ getWifiIpConfig() }}</u></a
+            >
+            <span appHideInWeb *ngIf="getWifiIpConfig() === defaultStaticIp" class="text-select">{{
+              getWifiIpConfig()
+            }}</span>
+            <span appHideInUsbApp class="text-select">{{ getWifiIpConfig() }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr
+        [ngClass]="getBluetoothStatus() === connectionStatus.CONNECTED ? 'for-multiple-content' : 'for-single-content'"
+      >
+        <td>Bluetooth</td>
+        <td class="td-inner-content">
+          <div class="icon-with-span icon-with-span-bluetooth">
+            <img
+              src="{{ bluetoothIcon }}"
+              [ngClass]="
+                getBluetoothStatus() === connectionStatus.CONNECTED
+                  ? 'icon-center icon-center-bluetooth'
+                  : 'wifi wifi-disabled icon-center icon-center-bluetooth'
+              "
+            />
+            {{
+              getBluetoothStatus() === connectionStatus.CONNECTED
+                ? statusModel.bluetoothStatus.bluetoothPaired
+                : getBluetoothStatus()
+            }}
+          </div>
+          <div *ngIf="getBluetoothStatus() === connectionStatus.CONNECTED">
+            <div>
+              <span class="details-heading">BT Audio:</span>
+              <span>Streaming</span>
+            </div>
+            <div>
+              <span class="details-heading">BT Call:</span>
+              <span>{{ statusModel.bluetoothStatus.bluetoothCallStatus }}</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

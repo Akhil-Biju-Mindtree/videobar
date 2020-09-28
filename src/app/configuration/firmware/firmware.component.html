@@ -1,0 +1,65 @@
+<div class="firmware-container">
+  <div class="current-firmware-container font-bold">Installed Firmware v{{ currentFirmwareVersion }}</div>
+  <div *ngIf="isUpToDate && !noConnection" class="firmware-up-to-date">Your firmware is up-to-date.</div>
+  <div
+    *ngIf="!isUpToDate && !noConnection"
+    [ngClass]="relNotesOpenState ? 'update-container-open' : 'update-container-closed'"
+  >
+    <div class="firmware-available-container">
+      <span class="new-firmware-text font-bold">Firmware v{{ latestFirmwareVersion }} is now available.</span>
+      <button mat-button class="primary-button button-width" (click)="directInstallFirmware()">Install</button>
+    </div>
+    <div class="rel-notes-header" (click)="openCloseRelNotes()">
+      <img
+        src="{{ arrowIcon }}"
+        [ngClass]="relNotesOpenState ? 'rel-notes-icon-open' : 'rel-notes-icon-close'"
+      />&nbsp;Release Notes
+    </div>
+    <div *ngIf="relNotesOpenState" class="rel-notes">
+      <ng-container *ngIf="relNotesUpdates">
+        <div>Updates</div>
+        <ul class="rel-notes-ul">
+          <li *ngFor="let update of relNotesUpdates" class="rel-notes-li">{{ update }}</li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="relNotesBugFixes">
+        <div>Bug Fixes</div>
+        <ul class="rel-notes-ul">
+          <li *ngFor="let fix of relNotesBugFixes" class="rel-notes-li">{{ fix }}</li>
+        </ul>
+      </ng-container>
+      <ng-container *ngIf="relNotesKnownIssues">
+        <div>Known Issues</div>
+        <ul class="rel-notes-ul">
+          <li *ngFor="let issue of relNotesKnownIssues" class="rel-notes-li">{{ issue }}</li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+  <div [ngClass]="isUpToDate && !noConnection ? 'file-upload-container-updated' : 'file-upload-container'">
+    <div class="font-bold">Upload and Install another version</div>
+    <div>
+      <div class="file-upload-text">
+        Browse the <a class="url-link" (click)="openBoseWork()"><u>Bose Work</u></a> website to download previous
+        releases.
+      </div>
+      <app-file-upload
+        [fileType]="fileType"
+        [actionText]="fileUploadActionText"
+        [fileApplied]="firmwareUploaded"
+        (fileData)="getFileData($event)"
+        accept=".swu"
+      ></app-file-upload>
+      <div class="install-button-container" [ngClass]="{ 'web-install-button-container': !isDesktopApp }">
+        <button
+          mat-button
+          class="primary-button button-width"
+          [disabled]="disableInstallButton"
+          (click)="installFirmware()"
+        >
+          Install
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div *ngIf="isAdminIconHidden" routerLinkActive="nav-icon-dark">
+  <div class="button-container bottom-icon-container img-container">
+    <a
+      routerLink="/login"
+      matTooltip="Administration"
+      matTooltipPosition="right"
+      matTooltipClass="navigation-tooltip"
+      matTooltipShowDelay="800"
+      [matTooltipDisabled]="tooltipDisable"
+    >
+      <img
+        [src]="svgAdmin"
+        class="ic-bottom"
+        ngClass.lt-lg="sidenav-img-usb-auth"
+        ngClass.lg="sidenav-img-usb-auth-full"
+        ngClass.xl="sidenav-img-usb-auth-full"
+      />
+      <span class="sidenav-label font-inactive-link" ngClass.lt-lg="sidenav-label-hide">
+        Administration
+      </span>
+    </a>
+  </div>
+</div>

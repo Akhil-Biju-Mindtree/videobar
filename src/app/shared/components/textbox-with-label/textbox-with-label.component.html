@@ -1,0 +1,20 @@
+<div class="textbox-with-label">
+  <label class="label-text">{{ label }}</label>
+
+  <div>
+    <app-label-numeric-textbox
+      [value]="value"
+      (valueChange)="updateSlider($event)"
+      [parentForm]="parentForm"
+      [uuid]="uuid"
+      [showError]="false"
+      [isRequired]="isRequired"
+      [restoreDefault]="restoreDefault"
+      [isTextAllign]="isTextAllign"
+    >
+    </app-label-numeric-textbox>
+  </div>
+</div>
+<div *ngIf="isInValid()" class="error-message">
+  {{ inputErrorMessage }}
+</div>

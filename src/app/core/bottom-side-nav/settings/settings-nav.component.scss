@@ -1,0 +1,95 @@
+@import 'variables.scss';
+
+.button-container-settings {
+  // float: left;
+  cursor: pointer;
+  font-size: 14px;
+  &.user {
+    display: flex;
+
+    a {
+      height: 32px;
+      text-decoration: none;
+      .ic-setting {
+        filter: invert(0.7);
+        padding: 8px auto;
+      }
+    }
+  }
+}
+
+.user-device-detached {
+  cursor: pointer;
+
+  &.user {
+    display: flex;
+
+    a {
+      width: 189px;
+      height: 32px;
+
+      .ic-setting {
+        filter: invert(0.7);
+      }
+    }
+  }
+}
+
+.sidenav-img {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+.sidenav-img-full-size {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+}
+
+.nav-icon-dark {
+  a:hover {
+    background-color: $color-concrete;
+  }
+
+  background-color: $color-concrete;
+
+  img {
+    filter: invert(0.1) !important;
+  }
+}
+
+.back-btn-container {
+  a:hover {
+    img {
+      filter: invert(0.1) !important;
+    }
+  }
+}
+
+.sidenav-label-hide {
+  @media screen and (max-width: 719px) {
+    display: none;
+  }
+}
+
+.navigation-tooltip-back {
+  font-size: 10px;
+}
+
+.back-btn {
+  width: 38px;
+  height: 36px;
+}
+
+.bottom-margin {
+  margin-bottom: 24px;
+}
+
+.nav-icon-dark {
+  .font-inactive-link {
+    color: #242424 !important;
+  }
+}

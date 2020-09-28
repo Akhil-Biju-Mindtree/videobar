@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+.audio-control-toggle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /*   height: 40px; */
+}
+
+.audio-control-label {
+  width: 177px;
+  line-height: 18px;
+}
+
+.control-enabled-status {
+  line-height: 18px;
+  margin-left: 12px;
+}
+
+.control-toggled-status {
+  padding-left: 10px;
+}
+
+.label-disabled {
+  color: $color-light-grey-blur;
+}

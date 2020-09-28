@@ -1,0 +1,40 @@
+<div class="login-form" *ngIf="!isAdmin || !isDeviceDataRetrived">
+  <div class="password-field" [ngClass]="{ 'text-field-invalid': isInvalid() }">
+    <label class="password-label">Password</label>
+    <app-text-field-textbox
+      appAutoFocus
+      [uuid]="uuid.SYSTEM_PASSWORD"
+      [isRequired]="true"
+      (valueChange)="updatePassword($event)"
+      [parentForm]="loginForm"
+      [showError]="false"
+      [type]="isPasswordShown ? 'text' : 'password'"
+      [regEx]="passwordRegex"
+      [maxLength]="passwordLength"
+      [hasKeyEvents]="true"
+      (enterKeyEvent)="login()"
+      [value]="passwordValue"
+    ></app-text-field-textbox>
+    <div class="checkbox-container">
+      <mat-checkbox (change)="onCheckShowPassword()">Show password</mat-checkbox>
+    </div>
+    <div *ngIf="isInvalid()" class="error-message">
+      {{ invalidPasswordMsg }}
+    </div>
+    <div *ngIf="attemptPassword" class="attempt-message">
+      {{ attemptPasswordMsg }}
+    </div>
+  </div>
+  <div class="update-button">
+    <button mat-button class="primary-button" (click)="login()" [disabled]="isSubmitButtonDisabled">
+      Sign In
+    </button>
+  </div>
+  <div class="cancel-button" appHideInWeb>
+    <a (click)="onCancel()">Cancel</a>
+  </div>
+</div>
+
+<div *ngIf="isAdmin && isDeviceDataRetrived" class="logout-form">
+  <button mat-button class="primary-button" (click)="logout()">Sign Out</button>
+</div>

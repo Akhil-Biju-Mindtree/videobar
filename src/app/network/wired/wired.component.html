@@ -1,0 +1,19 @@
+<div class="wired-container">
+  <app-network-ip-status
+    [connectionStatusStateUUID]="connectionStatusStateUUID"
+    [wiredStatusUUID]="wiredStatusUUID"
+    [ethernetIcon]="ethernetIcon"
+    (toggleStatus)="onToggleWiredStatus($event)"
+    (statusChange)="onStatusChange($event)"
+  >
+  </app-network-ip-status>
+  <div class="ip-settings-container" *ngIf="isWiredEnabled">
+    <app-network-ip-settings
+      [ipConfigurationValues]="ipConfigurationValues"
+      [ipStatic]="ipStatic"
+      [ipSettingUUID]="ipSettingUUID"
+      [status]="connectionStatus"
+    >
+    </app-network-ip-settings>
+  </div>
+</div>

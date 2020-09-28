@@ -1,0 +1,3 @@
+# SOURCE				DESTINATION/RULE			COMMAND
+s|<VERSION>|$[Version]|			rule
+release/Bose*.pkg			<DEPLOY_DIR>/.				glob

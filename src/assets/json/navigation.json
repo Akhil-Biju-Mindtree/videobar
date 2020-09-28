@@ -1,0 +1,37 @@
+[
+  {
+    "icon": "assets/images/svg/navigation/status.svg",
+    "routerLink": "status",
+    "toolTipText": "Status",
+    "iconStyling": "sidenav-img-usb-status",
+    "iconStylingFullSize": "sidenav-img-usb-status-full"
+  },
+  {
+    "icon": "assets/images/svg/navigation/configuration.svg",
+    "routerLink": "configuration",
+    "toolTipText": "Configuration",
+    "iconStyling": "sidenav-img-usb-configuartion",
+    "iconStylingFullSize": "sidenav-img-usb-configuartion-full"
+  },
+  {
+    "icon": "assets/images/svg/navigation/video.svg",
+    "routerLink": "video",
+    "toolTipText": "Video",
+    "iconStyling": "sidenav-img-usb-video",
+    "iconStylingFullSize": "sidenav-img-usb-video-full"
+  },
+  {
+    "icon": "assets/images/svg/navigation/audio.svg",
+    "routerLink": "audio",
+    "toolTipText": "Audio",
+    "iconStyling": "sidenav-img-usb-audio",
+    "iconStylingFullSize": "sidenav-img-usb-audio-full"
+  },
+  {
+    "icon": "assets/images/svg/navigation/networking.svg",
+    "routerLink": "network",
+    "toolTipText": "Network",
+    "iconStyling": "sidenav-img-usb-network",
+    "iconStylingFullSize": "sidenav-img-usb-network-full"
+  }
+]

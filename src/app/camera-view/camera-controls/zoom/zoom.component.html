@@ -1,0 +1,20 @@
+<div class="zoom-slider-container">
+  <div
+    class="zoom-slider"
+    [ngClass]="{
+      'zoom-slider-off zoom-slider-off-thumb': !autoFrameStatus,
+      'zoom-slider-on zoom-slider-on-thumb': autoFrameStatus
+    }"
+  >
+    <span [matTooltip]="toolTipZoomStatus" [matTooltipShowDelay]="toolTipDelay" [matTooltipClass]="'for-slider'">
+      <img [src]="svgZoomIcon" class="ic-target" />
+      <mat-slider
+        (input)="onZoomSliderChange($event)"
+        [min]="cameraMinRange"
+        [max]="cameraMaxRange"
+        [step]="cameraRangeStep"
+        [value]="defaultZoomValue"
+      ></mat-slider>
+    </span>
+  </div>
+</div>

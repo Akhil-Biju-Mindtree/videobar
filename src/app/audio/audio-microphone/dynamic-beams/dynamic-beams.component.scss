@@ -1,0 +1,15 @@
+.overlay-container {
+  position: absolute;
+  z-index: 11;
+  top: 80px;
+}
+
+.overlay-container > canvas {
+  z-index: 12;
+}
+
+.beam-container {
+  .full-screen-view {
+    top: 0px;
+  }
+}

@@ -1,0 +1,57 @@
+@import 'variables.scss';
+
+.sidenav-img-usb-auth {
+  width: 15px;
+  height: 16px;
+  margin-top: 8px;
+  @media screen and (max-width: 719px) {
+    margin-bottom: 7px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  @media screen and (min-width: 719px) {
+    margin-bottom: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.sidenav-img-usb-auth-full {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: 15px;
+  height: 16px;
+}
+
+.nav-icon-dark {
+  a:hover {
+    background-color: $color-concrete;
+  }
+
+  background-color: $color-concrete;
+
+  img {
+    filter: invert(0.1);
+  }
+}
+
+.sidenav-label-hide {
+  @media screen and (max-width: 719px) {
+    display: none;
+  }
+}
+
+.button-container {
+  a {
+    text-decoration: none;
+    width: 100%;
+  }
+}
+
+.nav-icon-dark {
+  .font-inactive-link {
+    color: #242424 !important;
+  }
+}

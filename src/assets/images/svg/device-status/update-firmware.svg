@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="98" height="20" viewBox="0 0 98 20">
+    <g fill="none" fill-rule="evenodd" transform="translate(-10)">
+        <rect width="98" height="20" x="10" fill="#F3F3F3" rx="10"/>
+        <text fill="#242424" font-family="GothamSSm-Bold, Gotham SSm" font-size="9" font-weight="bold" letter-spacing=".09">
+            <tspan x="24" y="13">Update Firmware</tspan>
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,60 @@
+<div class="camera-control-container">
+  <div class="pane-container">
+    <app-grab-pane [isPanTiltDisabled]="isPanTiltDisabled"></app-grab-pane>
+  </div>
+  <div class="button-controls-container">
+    <app-presets
+      id="left-btn"
+      [parentPreset]="'preset1'"
+      [disableTooltip]="contextMenuConfig.showMenu"
+      (mouseup)="onRightClick($event, '2')"
+    ></app-presets>
+    <app-auto-frame id="middle-btn" [disableTooltip]="contextMenuConfig.showMenu"></app-auto-frame>
+    <app-presets
+      id="right-btn"
+      [parentPreset]="'preset2'"
+      [disableTooltip]="contextMenuConfig.showMenu"
+      (mouseup)="onRightClick($event, '3')"
+    ></app-presets>
+  </div>
+  <div class="slider-container-zoom">
+    <img [src]="svgZoomIconPlus" class="ic-target" />
+    <span [matTooltip]="toolTipZoomStatus" [matTooltipShowDelay]="toolTipDelay" [matTooltipClass]="'for-slider'">
+      <app-slider
+        [showMinValue]="false"
+        [showMaxValue]="false"
+        [uuid]="uuid.CAMERA_ZOOM_UUID"
+        [containerWidthStyle]="containerWidthStyle"
+        (valueChange)="handleZoomChange($event)"
+        isAnimationDisabled="true"
+      ></app-slider>
+    </span>
+  </div>
+  <div class="slider-container-volume">
+    <img
+      *ngIf="!volumeMute"
+      [src]="svgVolumeIconSpeaker"
+      class="ic-target volume-pointer"
+      (click)="volumeAction('1')"
+    />
+    <img *ngIf="volumeMute" [src]="svgVolumeIconMute" class="ic-target volume-pointer" (click)="volumeAction('0')" />
+    <span [matTooltip]="toolTipVolumeStatus" [matTooltipShowDelay]="toolTipDelay" [matTooltipClass]="'for-slider'">
+      <app-slider
+        [showMinValue]="false"
+        [showMaxValue]="false"
+        [uuid]="uuid.SPEAKER_VOLUME"
+        [containerWidthStyle]="containerWidthStyle"
+        (valueChange)="handleVolumeChange($event)"
+        isAnimationDisabled="true"
+      ></app-slider>
+    </span>
+  </div>
+</div>
+<app-context-menu
+  *ngIf="contextMenuConfig.showMenu"
+  [contextMenuConfig]="contextMenuConfig"
+  [contextMenuData]="contextMenuData"
+  [menuItems]="menuItems"
+  (itemSelected)="contextMenuSelect($event)"
+>
+</app-context-menu>

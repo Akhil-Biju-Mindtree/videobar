@@ -1,0 +1,16 @@
+// PIXELS TO PERCENTAGES
+// $target: the desired font size for the element
+// $parent: the targets parent element font size (default: 600)
+//------------------------------------------
+@function pxtopercent($target, $parent) {
+  // @return percentage(($target / $parent) * 100);
+  @return percentage(($target / $parent));
+}
+
+// PIXELS TO EMS
+// $target: the desired font size for the element
+// $parent: the targets parent element font size (default: 600)
+//------------------------------------------
+@function pxtoem($target, $context: 600) {
+  @return ($target / $context)+0em;
+}

@@ -1,0 +1,110 @@
+@import 'variables.scss';
+
+.web-autoframing-container {
+  margin-bottom: 2%;
+}
+
+.autoframe-status-container {
+  height: 67px;
+  padding: 12px 16px;
+  vertical-align: top;
+  padding-left: 0px;
+}
+
+.status-value-component {
+  display: inline-block;
+}
+
+.status-toggle-container {
+  height: 24px;
+  padding-left: 40px;
+}
+
+.bbox-toggle-container {
+  height: 24px;
+}
+
+.status-toggle-span, .bbox-toggle-span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.status-toggle-text, .bbox-toggle-text{
+  margin-left: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.status-button-container {
+  height: 34px;
+  padding-left: 40px;
+  margin-top: 9px;
+}
+
+.status-button-span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.status-button-text {
+  margin-left: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.status-button-text-disbaled {
+  margin-left: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  color: $color-medium-grey;
+}
+
+.header-component {
+  width: 136px;
+  height: 14px;
+  padding: 7px 0px;
+  color: $font-color-dark-grey;
+  display: inline-block;
+  vertical-align: inherit;
+  &.autoframe {
+    padding-top: 3px;
+  }
+}
+
+.value-component {
+  display: inline-block;
+  padding-left: 43px;
+}
+
+.autoframe-headroomadjustment-container {
+  height: 52px;
+  padding: 12px 16px;
+  vertical-align: top;
+  padding-left: 0px;
+}
+
+.autoframe-zoomspeed-container {
+  height: 72px;
+  padding: 12px 16px;
+  vertical-align: top;
+  padding-left: 0px;
+}
+
+.label-disabled {
+  color: $color-light-grey-blur;
+}
+
+.video-bbox-overlay {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.video-bbox-label {
+  width: 176px;
+  margin-top: 4px;
+}
+
+.video-bbox-overlay-web {
+  margin-bottom: calc(5px + 3vh);
+}

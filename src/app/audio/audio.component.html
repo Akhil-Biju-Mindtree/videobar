@@ -1,0 +1,8 @@
+<div class="audio-container">
+  <div *ngIf="!(isFullScreen | async)" class="side-nav-content-title" ngClass.xs="usb-size-padding">
+    <h4>Audio</h4>
+  </div>
+  <app-navigation *ngIf="!(isFullScreen | async)" [navigationItems]="navigationItems"></app-navigation>
+
+  <router-outlet></router-outlet>
+</div>

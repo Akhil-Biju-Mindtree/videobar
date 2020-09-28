@@ -1,0 +1,22 @@
+@import 'variables.scss';
+.websocket-notify {
+    font-family: gotham-bold;
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    span {
+      color: $color-concrete;
+      font-family: gotham-book;
+    }
+  }
+
+  
+.notification-content {
+  display: inline-block;
+  min-height: 18px;
+  max-width: 345px;
+  padding-right: 23px;
+  vertical-align: middle;
+}
+

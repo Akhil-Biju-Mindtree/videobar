@@ -1,0 +1,29 @@
+<div class="container" [ngClass]="{ 'eap-container': securityType === 'eap' }">
+  <div class="network-name setting-row">
+    <label>Network Name</label>
+    <app-text-field-textbox
+      appAutoFocus
+      [parentForm]="formGroup"
+      [uuid]="otherNetwork[0].uuid"
+      [isRequired]="true"
+    ></app-text-field-textbox>
+  </div>
+
+  <div class="security setting-row">
+    <label>Security</label>
+    <app-select-dropdown
+      [itemList]="security"
+      (sendDataEvent)="onSecurityType($event, otherNetwork[1].uuid)"
+      [currentValue]="otherNetwork[1].labelValue"
+      [placeholder]="otherNetwork[1].labelValue"
+    ></app-select-dropdown>
+  </div>
+
+  <div *ngIf="securityType === 'psk' || securityType === 'wep'">
+    <app-wireless-password [formGroup]="formGroup" [securityType]="securityType"></app-wireless-password>
+  </div>
+
+  <div *ngIf="securityType === 'eap'" class="eap-settings">
+    <app-eap-settings [parentForm]="formGroup"></app-eap-settings>
+  </div>
+</div>

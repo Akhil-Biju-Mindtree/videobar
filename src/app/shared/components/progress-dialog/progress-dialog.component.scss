@@ -1,0 +1,28 @@
+@import 'variables.scss';
+
+.inner-container {
+    padding: 17px 37px 0px 37px !important;
+  }
+
+  .dialog-title {
+    color: $font-color-black;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-left: 6px;
+    height: 26px;
+    line-height: 1.5;
+  }
+
+  .progress-bar-container {
+    padding: 6px 5px 0px 5px;
+  }
+
+  .mat-progress-bar {
+    display: block;
+    height: 8px;
+    width: 272px;
+    overflow: hidden;
+    position: relative;
+    transition: opacity 250ms linear;
+    border-radius: 12px;
+}

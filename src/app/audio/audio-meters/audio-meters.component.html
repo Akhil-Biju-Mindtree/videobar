@@ -1,0 +1,22 @@
+<div class="audio-meters-container scroll-container full-screen-padding" ngClass.xs="usb-size-padding">
+  <div class="audio-input-levels">
+    <h6>Input Levels</h6>
+    <div class="audio-meter">
+      <app-progress-bar
+        *ngFor="let meter of inputLevelMeters"
+        [uuid]="meter.uuid"
+        [label]="meter.label"
+      ></app-progress-bar>
+    </div>
+  </div>
+  <div class="audio-output-levels">
+    <h6>Output Levels</h6>
+    <div class="audio-meter">
+      <app-progress-bar
+        *ngFor="let meter of outputLevelMeters"
+        [uuid]="meter.uuid"
+        [label]="meter.label"
+      ></app-progress-bar>
+    </div>
+  </div>
+</div>

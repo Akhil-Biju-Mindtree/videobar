@@ -1,0 +1,22 @@
+<div class="custom-slider" [ngStyle]="containerWidthStyle">
+  <mat-slider
+    [min]="minValue"
+    [max]="maxValue"
+    [step]="step"
+    [value]="defaultValue"
+    [formControl]="formControl"
+    [disabled]="disabled"
+    (mousedown)="onMouseDown()"
+    [ngClass]="{ disableAnimation: isAnimationDisabled }"
+  >
+  </mat-slider>
+  <div class="slider-value-container">
+    <span class="slider-value slider-value-min" *ngIf="showMinValue === true">{{ minValue }}</span>
+    <span class="slider-value slider-value-max" *ngIf="showMaxValue === true">{{ maxValue }}</span>
+    <ng-container *ngIf="showSteps">
+      <div class="step-container" [ngStyle]="{ left: step.offset + '%' }" *ngFor="let step of stepValues">
+        <span>{{ step.label }}</span>
+      </div>
+    </ng-container>
+  </div>
+</div>

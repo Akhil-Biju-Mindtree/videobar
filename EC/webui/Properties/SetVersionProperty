@@ -1,0 +1,12 @@
+cd $[buildDir]
+VERSION_MAJOR=$(cat $[VersionFile] | awk -F'"' '/VERSION_MAJOR/ {print $2}')
+VERSION_MINOR=$(cat $[VersionFile] | awk -F'"' '/VERSION_MINOR/ {print $2}')
+VERSION_PATCH=$(cat $[VersionFile] | awk -F'"' '/VERSION_PATCH/ {print $2}')
+sversion=$(printf "%d.%d.%d" $VERSION_MAJOR $VERSION_MINOR $VERSION_PATCH)
+version=$(printf "%d.%d.%d-%d+%s" $VERSION_MAJOR $VERSION_MINOR $VERSION_PATCH $[buildNumber] $[gitHashShort])
+versionAWS=$(printf "%d.%d.%d-%d-%s" $VERSION_MAJOR $VERSION_MINOR $VERSION_PATCH $[buildNumber] $[gitHashShort])
+
+echo "Setting Version property to $version"
+ectool setProperty /myJob/Sversion $sversion
+ectool setProperty /myJob/Version $version
+ectool setProperty /myJob/VersionAWS $versionAWS

@@ -1,0 +1,3 @@
+# SOURCE				DESTINATION/RULE			COMMAND
+s|<VERSION>|$[Version]|			rule
+Bose-Work-Configuration-WebUI*.zip				<DEPLOY_DIR>/.				glob

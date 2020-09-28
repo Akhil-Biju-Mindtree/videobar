@@ -1,0 +1,13 @@
+// Workspace settings
+{
+  // The following will hide the js and map files in the editor
+  "files.exclude": {
+    "electron/**/*.js": true,
+    "server/**/*.js": true,
+    "**/*.map": true,
+    "configurations/**/*.js": true,
+    "/shared/**/*.js": true,
+    "/logger/**/*.js": true
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

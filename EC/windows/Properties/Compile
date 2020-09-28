@@ -1,0 +1,11 @@
+cd /D $[buildDirWin]
+set TMP=E:\temp
+set TEMP=E:\temp
+set PYTHON="E:\tools\Python27\python.exe"
+set PATH=%PYTHON%:%PATH%
+echo %PATH%
+
+nvm use 10.22.0
+sleep 3
+
+build.bat

@@ -1,0 +1,9 @@
+<div class="audio-control-toggle">
+  <div *ngIf="label" [ngClass]="{ 'audio-control-label': true, 'label-disabled': disabled }">
+    <label>{{ label }} </label>
+  </div>
+  <div>
+    <mat-slide-toggle [disabled]="disabled" [checked]="toggledValue" (change)="toggleState($event)"></mat-slide-toggle>
+  </div>
+  <div class="control-toggled-status">{{ displayToggleState(toggledValue) }}</div>
+</div>

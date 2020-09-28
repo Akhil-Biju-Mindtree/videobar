@@ -1,0 +1,58 @@
+@import 'variables.scss';
+
+.customButton {
+  min-width: 148px !important;
+}
+
+.isCustomMenuOpened {
+  border-radius: 16px 16px 0px 0px !important;
+}
+
+.textbox-container {
+  background-color: $color-concrete;
+  width: 224px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.drop-down-arrow {
+  width: 14px;
+  height: 8px;
+}
+
+.input-textbox {
+  //padding-left: 8px;
+  width: 192px; // 188px + 8px
+  cursor: pointer;
+  font-family: gotham-book;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-textbox:focus {
+  border: $border-blue;
+}
+
+.second-icon-span {
+  float: right;
+  padding-left: 8px;
+  @supports (-ms-ime-align: auto) or (-moz-appearance:none){
+    padding-right: 12px;
+  }
+}
+
+.displaylist {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+  display: inline-block;
+  @supports (-ms-ime-align: auto) or (-moz-appearance:none){
+    width:77%;
+  }
+}
+
+.first-icon-span {
+  float: right;
+}

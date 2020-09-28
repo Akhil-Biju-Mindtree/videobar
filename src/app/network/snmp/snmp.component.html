@@ -1,0 +1,120 @@
+<div class="snmp-form-container">
+  <div class="snmp-authentication row">
+    <div class="snmp-label">
+      <span>{{ snmpSettingUuid[0].label }}</span>
+    </div>
+    <div class="authentication-dropdown column-two">
+      <!-- onDropdownReceive method accepts 2 parameter event & field index 0 refers to Authentication Protocol-->
+      <app-select-dropdown
+        [parentForm]="snmpForm"
+        [uuid]="snmpSettingUuid[0].uuid"
+        [currentValue]="snmpSettingUuid[0].value"
+        [itemList]="authenticationType"
+        (sendDataEvent)="onDropdownReceive($event, 0)"
+      ></app-select-dropdown>
+    </div>
+  </div>
+
+  <div class="snmp-username row">
+    <div class="snmp-label">
+      <span>{{ snmpSettingUuid[1].label }}</span>
+    </div>
+    <div class="username column-two">
+      <app-text-field-textbox
+        [parentForm]="snmpForm"
+        [uuid]="snmpSettingUuid[1].uuid"
+        [isRequired]="snmpSettingUuid[1].isRequired"
+        [value]="snmpSettingUuid[1].value"
+      ></app-text-field-textbox>
+    </div>
+  </div>
+
+  <div class="snmp-password column">
+    <div class="field-with-showpasword">
+      <label class="snmp-label">{{ snmpSettingUuid[2].label }}</label>
+      <app-textbox
+        [parentForm]="snmpForm"
+        [containerWidthStyle]="containerWidthStyle"
+        [uuid]="snmpSettingUuid[2].uuid"
+        [isRequired]="snmpSettingUuid[2].isRequired"
+        [value]="passwordValue"
+        [inputType]="isPasswordShown ? 'text' : 'password'"
+      ></app-textbox>
+    </div>
+
+    <div class="checkbox-container">
+      <mat-checkbox [checked]="isPasswordShown" (change)="onCheckShowPassword()"
+        >Show {{ snmpSettingUuid[2].label.toLowerCase() }}</mat-checkbox
+      >
+    </div>
+  </div>
+
+  <div class="snpm-encryption row">
+    <div class="snmp-label">
+      <span>{{ snmpSettingUuid[3].label }}</span>
+    </div>
+    <div class="encryption-dropdown column-two">
+      <!-- onDropdownReceive method accepts 2 parameter event & field index 3 refers to Encryption Protocol -->
+      <app-select-dropdown
+        [parentForm]="snmpForm"
+        [uuid]="snmpSettingUuid[3].uuid"
+        [currentValue]="snmpSettingUuid[3].value"
+        [itemList]="encryptionType"
+        (sendDataEvent)="onDropdownReceive($event, 3)"
+      ></app-select-dropdown>
+    </div>
+  </div>
+
+  <div class="snmp-privacy-passphrase column">
+    <div class="field-with-showpasword">
+      <label class="snmp-label">{{ snmpSettingUuid[4].label }}</label>
+      <app-textbox
+        [parentForm]="snmpForm"
+        [containerWidthStyle]="containerWidthStyle"
+        [uuid]="snmpSettingUuid[4].uuid"
+        [isRequired]="snmpSettingUuid[4].isRequired"
+        [value]="privacyPassphase"
+        [inputType]="isPrivacyPassphraseShown ? 'text' : 'password'"
+      ></app-textbox>
+    </div>
+
+    <div class="checkbox-container">
+      <mat-checkbox [checked]="isPrivacyPassphraseShown" (change)="onCheckShowPrivacyPassphrase()"
+        >Show {{ snmpSettingUuid[4].label.toLowerCase() }}</mat-checkbox
+      >
+    </div>
+  </div>
+
+  <div class="snmp-trap-server row">
+    <div class="snmp-label">
+      <span>{{ snmpSettingUuid[5].label }}</span>
+    </div>
+    <div class="trap-server column-two">
+      <app-text-field-textbox
+        [parentForm]="snmpForm"
+        [uuid]="snmpSettingUuid[5].uuid"
+        [isRequired]="snmpSettingUuid[5].isRequired"
+        [value]="snmpSettingUuid[5].value"
+      ></app-text-field-textbox>
+    </div>
+  </div>
+
+  <div class="button">
+    <button
+      mat-button
+      class="primary-button reset"
+      [disabled]="snmpForm.pristine || isValueChange()"
+      (click)="resetSnmp()"
+    >
+      Reset
+    </button>
+    <button
+      mat-button
+      class="primary-button reset"
+      [disabled]="snmpForm.invalid || snmpForm.pristine || isValueChange()"
+      (click)="applySnmp()"
+    >
+      Apply
+    </button>
+  </div>
+</div>

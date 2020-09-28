@@ -1,0 +1,314 @@
+<div
+  class="full-screen-padding"
+  [ngClass.xs]="{ 'usb-size-padding': true, 'zero-padding': isDesktopApp }"
+  [ngClass]="{ 'zero-padding': isDesktopApp }"
+>
+  <app-camera-video-stream
+    [isAudioVideo]="true"
+    (videoStreamStatus)="onChangeVideoStatus($event)"
+    [ngStyle]="{ width: canvasWidth + 'px', height: canvasHeight + 'px', margin: 'auto' }"
+  >
+  </app-camera-video-stream>
+</div>
+<div
+  id="microphone-container"
+  class="microphone-container full-screen-padding"
+  [ngClass.xs]="{ 'usb-size-padding': true, 'zero-padding': isDesktopApp, 'xs-web-screen': !isDesktopApp }"
+  [ngClass]="{
+    'zero-padding': isDesktopApp,
+    'md-lg-web-screen': screenWidthHeight === 'md-lg',
+    'xl-web-screen': screenWidthHeight === 'xl'
+  }"
+  [ngStyle]="{ width: canvasWidth + 'px', height: canvasHeight + 'px', margin: 'auto' }"
+>
+  <router-outlet *ngIf="isVideoStreamAvailable" class="microphone-container"></router-outlet>
+  <app-zone-beams *ngIf="isVideoStreamAvailable"></app-zone-beams>
+  <app-fab-smart-button
+    #collapseExpandButton
+    *ngIf="isDesktopApp && isVideoStreamAvailable"
+    flex
+    [fabMiniStyles]="fabMiniStyles"
+    [callParentMethod]="true"
+    (clickEmitter)="selectionChange($event)"
+  >
+  </app-fab-smart-button>
+
+  <div
+    *ngIf="isVideoStreamAvailable && this.angularP5Service.getSelectedBeamType() === dynamicBeamType"
+    class="zone-image-overlap"
+    [ngStyle]="{
+      width: isDesktopApp
+        ? canvasWidth + 'px'
+        : screenWidthHeight === 'xl'
+        ? '735px'
+        : screenWidthHeight === 'md-lg'
+        ? '486px'
+        : '428px',
+      height: isDesktopApp ? canvasWidth * 0.0318 + 'px' : screenWidthHeight === 'xl' ? '19px' : '14px',
+      marginTop: isDesktopApp ? -canvasWidth * 0.0318 + 'px' : screenWidthHeight === 'xl' ? '-19px' : '-14px'
+    }"
+  >
+    <div
+      class="zone-overlap-div"
+      [ngStyle]="{
+        width: isDesktopApp ? canvasWidth / 6 + 'px' : screenWidthHeight === 'xl' ? '115px' : '72px',
+        height: isDesktopApp ? canvasWidth * 0.0318 + 'px' : screenWidthHeight === 'xl' ? '19px' : '14px'
+      }"
+    ></div>
+    <div
+      class="zone-overlap-div"
+      [ngStyle]="{
+        width: isDesktopApp ? canvasWidth / 6 + 'px' : screenWidthHeight === 'xl' ? '115px' : '72px',
+        height: isDesktopApp ? canvasWidth * 0.0318 + 'px' : screenWidthHeight === 'xl' ? '19px' : '14px'
+      }"
+    ></div>
+  </div>
+  <!-- If zone image should change for video streaming and non streaming add it non streaming part here and streaming part in zone component-->
+
+  <div
+    class="zone-image"
+    [ngClass]="{
+      'xs-web-screen': screenWidthHeight === 'xs',
+      'md-lg-web-screen': screenWidthHeight === 'md-lg',
+      'xl-web-screen': screenWidthHeight === 'xl'
+    }"
+    [ngStyle]="{ width: canvasWidth + 'px', top: -canvasWidth * 0.0318 + 'px' }"
+  >
+    <img
+      class="zone-left"
+      [ngClass]="{
+        'xs-web-screen': screenWidthHeight === 'xs',
+        'md-lg-web-screen': screenWidthHeight === 'md-lg',
+        'xl-web-screen': screenWidthHeight === 'xl'
+      }"
+      [src]="zoneLeftIcon"
+      draggable="false"
+      ondragstart="return false"
+      [ngStyle]="{
+        width: canvasWidth / 2 + 'px',
+        height: canvasWidth * 0.1228 + 1 + 'px'
+      }"
+    />
+    <img
+      class="zone-right"
+      [ngClass]="{
+        'xs-web-screen': screenWidthHeight === 'xs',
+        'md-lg-web-screen': screenWidthHeight === 'md-lg',
+        'xl-web-screen': screenWidthHeight === 'xl'
+      }"
+      [src]="zoneRightIcon"
+      draggable="false"
+      ondragstart="return false"
+      [ngStyle]="{
+        width: canvasWidth / 2 + 'px',
+        height: canvasWidth * 0.1228 + 1 + 'px'
+      }"
+    />
+  </div>
+  <!-- Zone delete button -->
+  <div
+    class="rounded-div full-screen-padding"
+    [ngClass.xs]="{
+      'usb-size-padding': true,
+      'small-screen-delete zero-padding': isDesktopApp,
+      'xs-web-screen-delete': !isDesktopApp
+    }"
+    [ngClass]="{
+      'full-screen-delete': isFullScreen | async,
+      'zero-padding': isDesktopApp,
+      'md-lg-web-screen-delete': screenWidthHeight === 'md-lg',
+      'xl-web-screen-delete': screenWidthHeight === 'xl'
+    }"
+    [ngStyle]="{ top: canvasHeight * 0.99 + 'px', left: screenWidth * 0.5 - canvasWidth * 0.018 + 'px' }"
+  >
+    <button
+      *ngIf="!this.angularP5Service.getIsDeleteHiddenZone() && canvasWidth * 0.022 > 18 && isFullScreen | async"
+      class="delete-button"
+      [ngClass]="{ 'fullscreen-view-button': isFullScreen | async }"
+      [ngStyle.xs]="{ width: '24px', height: '24px' }"
+      [ngStyle]="{
+        width: canvasWidth * 0.036 + 'px',
+        height: canvasWidth * 0.036 + 'px'
+      }"
+      (click)="onDeleteZone()"
+    >
+      <img
+        [src]="deleteIcon"
+        class="delete-img"
+        [ngStyle]="{
+          width: canvasWidth * 0.022 + 'px',
+          height: canvasWidth * 0.022 + 'px'
+        }"
+      />
+    </button>
+    <button
+      *ngIf="!this.angularP5Service.getIsDeleteHiddenZone() && (canvasWidth * 0.022 < 19 || canvasWidth === 440)"
+      class="delete-button"
+      [ngClass]="{ 'fullscreen-view-button': isFullScreen | async }"
+      [ngStyle.xs]="{ width: '24px', height: '24px' }"
+      [ngStyle]="{ width: '24px', height: '24px', marginLeft: canvasWidth * 0.018 - 12 + 'px' }"
+      (click)="onDeleteZone()"
+    >
+      <img [src]="deleteIcon" class="delete-img" [ngStyle]="{ width: '16px', height: '16px' }" />
+    </button>
+  </div>
+  <!-- Static delete button-->
+  <div
+    class="rounded-div full-screen-padding"
+    [ngClass.xs]="{
+      'usb-size-padding': true,
+      'small-screen-delete zero-padding': isDesktopApp,
+      'xs-web-screen-delete': !isDesktopApp
+    }"
+    [ngClass]="{
+      'full-screen-delete': isFullScreen | async,
+      'zero-padding': isDesktopApp,
+      'md-lg-web-screen-delete': screenWidthHeight === 'md-lg',
+      'xl-web-screen-delete': screenWidthHeight === 'xl'
+    }"
+    [ngStyle]="{ top: canvasHeight * 0.99 + 'px', left: screenWidth * 0.5 - canvasWidth * 0.018 + 'px' }"
+  >
+    <button
+      *ngIf="!this.angularP5Service.getIsDeleteHiddenStatic() && canvasWidth * 0.020731 > 18 && isFullScreen | async"
+      class="delete-button"
+      [ngClass]="{ 'fullscreen-view-button': isFullScreen | async }"
+      [ngStyle]="{
+        background: deleteButtonColor,
+        width: canvasWidth * 0.036 + 'px',
+        height: canvasWidth * 0.036 + 'px'
+      }"
+      (click)="onDeleteBeam()"
+    >
+      <img
+        [src]="deleteIcon"
+        class="delete-img"
+        [ngStyle]="{
+          width: canvasWidth * 0.022 + 'px',
+          height: canvasWidth * 0.022 + 'px'
+        }"
+      />
+    </button>
+    <button
+      *ngIf="!this.angularP5Service.getIsDeleteHiddenStatic() && (canvasWidth * 0.020731 < 19 || canvasWidth === 440)"
+      class="delete-button"
+      [ngClass]="{ 'fullscreen-view-button': isFullScreen | async }"
+      [ngStyle.xs]="{ background: deleteButtonColor, width: '24px', height: '24px' }"
+      [ngStyle]="{
+        background: deleteButtonColor,
+        width: '24px',
+        height: '24px',
+        marginLeft: canvasWidth * 0.018 - 12 + 'px'
+      }"
+      (click)="onDeleteBeam()"
+    >
+      <img [src]="deleteIcon" class="delete-img" [ngStyle]="{ width: '16px', height: '16px' }" />
+    </button>
+  </div>
+
+  <div
+    class="beam-navigation"
+    [ngClass]="{
+      'xl-navigation-bar': screenWidthHeight === 'xl',
+      'md-lg-navigation-bar': screenWidthHeight === 'md-lg',
+      'xs-navigation-bar': screenWidthHeight === 'xs'
+    }"
+    [ngStyle]="{ 'margin-top': -canvasWidth * 0.0386 + 'px' }"
+  >
+    <label
+      class="beam-label font-bold usb-size-padding"
+      [ngClass]="{
+        'beam-label-diabled': !isVideoStreamAvailable
+      }"
+      >Beam Type:
+    </label>
+    <div class="sub-nav-container">
+      <app-navigation
+        [navigationItems]="navigationItems"
+        [isUnderLined]="true"
+        [isDisabled]="!isVideoStreamAvailable"
+      ></app-navigation>
+      <button
+        class="hamburger-menu"
+        [disabled]="!isVideoStreamAvailable"
+        [ngClass]="{
+          'xs-hamburger-menu': screenWidthHeight === 'xs',
+          'md-hamburger-menu': screenWidthHeight === 'md-lg',
+          'xl-hamburger-menu': screenWidthHeight === 'xl',
+          'hamburger-disabled': !isVideoStreamAvailable
+        }"
+        [matMenuTriggerFor]="menu"
+        #t="matMenuTrigger"
+      >
+        <span class="item-label">{{ roomConfigurationList.label }}</span>
+        <img [src]="roomConfigurationList.iconPath" [ngClass]="{ 'up-arrow': t.menuOpen }" />
+      </button>
+      <mat-menu #menu="matMenu" backdropClass="hamburgerMenu">
+        <div class="room-configuration" [ngClass]="{ 'room-config-padding': isFullScreen | async }">
+          <div class="width" (click)="$event.stopPropagation()">
+            <label>Width</label>
+            <app-slider
+              [showMinValue]="false"
+              [showMaxValue]="false"
+              [value]="defaultWidth"
+              [min]="minWidthValue"
+              [max]="maxWidthValue"
+              [inputStep]="stepWidth"
+              [uuid]="uuidWidth"
+              [containerWidthStyle]="containerWidthStyle"
+              (valueChange)="setRoomValues(0, $event)"
+              class="slider"
+            ></app-slider>
+            <div class="room-slider-value-container">
+              <span class="room-slider-value room-slider-value-min">Min</span>
+              <span class="room-slider-value room-slider-value-max">Max</span>
+            </div>
+          </div>
+          <div class="depth" (click)="$event.stopPropagation()">
+            <label>Depth</label>
+            <app-slider
+              [showMinValue]="false"
+              [showMaxValue]="false"
+              [value]="defaultDepth"
+              [min]="minDepthValue"
+              [max]="maxDepthValue"
+              [inputStep]="stepDepth"
+              [uuid]="uuidDepth"
+              [containerWidthStyle]="containerWidthStyle"
+              (valueChange)="setRoomValues(1, $event)"
+              class="slider"
+            ></app-slider>
+            <div class="room-slider-value-container">
+              <span class="room-slider-value room-slider-value-min">Min</span>
+              <span class="room-slider-value room-slider-value-max">Max</span>
+            </div>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="button-container" [ngClass]="{ 'full-screen-button-container': isFullScreen | async }">
+    <div class="primary-controls">
+      <button
+        mat-button
+        class="primary-button microphone-buttons"
+        (click)="onAddExclusionZone()"
+        [disabled]="
+          isZoneEnabled ||
+          !isVideoStreamAvailable ||
+          this.angularP5Service.getSelectedBeamType() !== dynamicBeamType ||
+          this.angularP5Service.getIsPlaceToAddBeam()
+        "
+      >
+        <img class="add" [src]="addIcon" /> Exclusion Zone
+      </button>
+      <button
+        mat-button
+        class="primary-button microphone-buttons add-beam"
+        [disabled]="isAddBeamDisabled || !isVideoStreamAvailable"
+        (click)="onAddBeam()"
+      >
+        <img class="add" [src]="addIcon" /> Beam
+      </button>
+    </div>
+  </div>
+</div>

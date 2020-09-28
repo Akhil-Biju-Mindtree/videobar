@@ -1,0 +1,21 @@
+@import 'variables.scss';
+.identity-container {
+  margin-top: 15px;
+  padding-bottom: 4%;
+}
+
+.identity-field {
+  display: flex;
+  align-items: flex-start;
+}
+
+.label-text {
+  width: 152px;
+  margin-top: 16px;
+  color: $font-color-dark-grey;
+  line-height: 1.64;
+}
+
+.text-field {
+  margin: 10px 0px 10px 0px;
+}

@@ -1,0 +1,51 @@
+<div class="profile-conatainer">
+  <div class="restore-container">
+    <div class="container-heading-restore font-bold">Active Profile</div>
+    <div class="name-container">
+      <div>
+        <div class="name-heading">Name:</div>
+        <div class="profile-name">{{ profileName }}<span *ngIf="profileDirty === on">*</span></div>
+      </div>
+      <div *ngIf="profileDescription" class="description-container">
+        <div class="description-heading">Description:</div>
+        <div class="profile-description" [innerHtml]="profileDescriptionUI"></div>
+      </div>
+    </div>
+    <div class="restore-button-container">
+      <div class="profile-edited-container">
+        <span *ngIf="profileDirty === on">*Profile parameters have been edited</span>
+      </div>
+      <button
+        mat-button
+        class="normal-button button-width"
+        [disabled]="profileDirty === on ? false : true"
+        (click)="restoreDefaults()"
+      >
+        Restore
+      </button>
+    </div>
+  </div>
+  <div class="download-profile-container">
+    <div class="container-heading-download font-bold">Download Active Profile</div>
+    <div class="save-button-conatainer">
+      <button mat-button class="normal-button button-width" (click)="downloadProfile()">Save As...</button>
+    </div>
+  </div>
+  <div class="upload-profile-container">
+    <div class="container-heading-upload font-bold">Upload Profile</div>
+    <div class="file-upload-margin">
+      <app-file-upload
+        [fileType]="fileType"
+        [actionText]="fileUploadActionText"
+        [fileApplied]="profileUploaded"
+        (fileData)="getFileData($event)"
+        accept=".json"
+      ></app-file-upload>
+    </div>
+    <div class="apply-button-container" [ngClass]="{ 'web-button-container': !isDesktopApp }">
+      <button mat-button class="primary-button button-width" [disabled]="disableApplyButton" (click)="applyProfile()">
+        Apply
+      </button>
+    </div>
+  </div>
+</div>

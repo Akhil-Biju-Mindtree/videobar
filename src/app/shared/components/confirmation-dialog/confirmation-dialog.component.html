@@ -1,0 +1,15 @@
+<div [ngClass]="dialogTypeError() ? 'error-inner-container' : 'inner-container'" cdkTrapFocus>
+  <div [ngClass]="dialogTypeError() ? 'error-dialog-title' : 'dialog-title'">
+    {{ data.title }}
+  </div>
+  <div [ngClass]="dialogTypeError() ? 'error-dialog-content' : 'dialog-content'" [innerHTML]="data.content"></div>
+  <div [ngClass]="dialogTypeError() ? 'error-dialog-action' : 'dialog-action'">
+    <button *ngIf="!dialogTypeError()" class="normal-button " (click)="closeDialog(false)">
+      {{ data.refuteButtonLabel }}
+    </button>
+    <button cdkFocusInitial 
+    class="primary-button" (click)="closeDialog(true)">
+      {{ data.confirmButtonLabel }}
+    </button>
+  </div>
+</div>

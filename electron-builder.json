@@ -1,0 +1,94 @@
+{
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "target": ["nsis"],
+    "icon": "build/icon/installerIcon.ico",
+    "certificateFile": "build/test-certificate.pfx",
+    "certificatePassword": "passwordholder",
+    "verifyUpdateCodeSignature": true
+  },
+  "linux": {
+    "icon": "dist",
+    "target": ["AppImage"]
+  },
+  "appId": "com.raphael.application",
+  "productName": "Bose Work Configuration",
+  "artifactName": "Bose-Work-Configuration-Win-${version}.${ext}",
+  "copyright": "Copyright © 2020 Bose Corporation",
+  "asar": true,
+  "nsis": {
+    "include": "build/multi-user.nsh",
+    "oneClick": false,
+    "perMachine": false,
+    "publish": {
+      "provider": "github",
+      "owner": "bose corp",
+      "repo": "accurate",
+      "vPrefixedTagName": true,
+      "private": true,
+      "releaseType": "draft",
+      "url": ""
+    },
+    "license": "build/license.html",
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "menuCategory": true,
+    "shortcutName": "${productName}",
+    "runAfterFinish": true,
+    "installerIcon": "build/icon/installerIcon.ico",
+    "uninstallerIcon": "build/icon/installerIcon.ico",
+    "installerHeaderIcon": "build/icon/installerIcon.ico",
+    "installerSidebar": "",
+    "uninstallerSidebar": "",
+    "uninstallDisplayName": "${productName}",
+    "deleteAppDataOnUninstall": true
+  },
+  "mac": {
+    "category": "com.raphael.application",
+    "target": ["pkg"],
+    "icon": "dist",
+    "identity": "Bose Corporation (QC9P7FKWH6)",
+    "darkModeSupport": true,
+    "hardenedRuntime": true,
+    "gatekeeperAssess": false,
+    "entitlements": "build/entitlements.mac.plist",
+    "artifactName": "Bose-Work-Configuration-Mac-${version}.${ext}"
+  },
+  "pkg": {
+    "scripts": "../build/pkg-scripts",
+    "installLocation": "/Applications",
+    "background": {
+      "file": "",
+      "alignment": "bottomleft"
+    },
+    "allowAnywhere": false,
+    "allowCurrentUserHome": false,
+    "allowRootDirectory": true,
+    "license": "build/license.html",
+    "welcome": "build/resources/welcome.txt",
+    "conclusion": "",
+    "isVersionChecked": true,
+    "isRelocatable": false,
+    "overwriteAction": "upgrade"
+  },
+  "directories": {
+    "buildResources": "release",
+    "output": "release"
+  }
+}

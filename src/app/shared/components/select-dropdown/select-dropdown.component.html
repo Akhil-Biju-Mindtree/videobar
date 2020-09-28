@@ -1,0 +1,33 @@
+<div class="selectbox-container" [ngClass]="{ 'video-tab-container': isVideoTab }">
+  <mat-select
+    #mySelect
+    [formControl]="formControl"
+    [(value)]="dropDownValue"
+    disableOptionCentering
+    disableRipple
+    [placeholder]="placeholder"
+    (selectionChange)="onValueChange($event, mySelect)"
+    [disabled]="isDisabled"
+    (openedChange)="onDropdownClick(mySelect)"
+    [panelClass]="isVideoTab ? 'cdk-video-select' : 'cdk-normal-select'"
+    [ngClass]="{ 'video-tab-select': isVideoTab, 'video-tab-container-opened': mySelect.panelOpen && isVideoTab }"
+  >
+    <mat-option *ngFor="let element of itemList" [value]="element.value" [ngClass]="{ 'option-videotab': isVideoTab }">
+      <span
+        isEllipsisActive
+        class="overflow-class"
+        [ngClass]="{
+          'twoicon-span': isListWithIcons && element.secondIcon && element.firstIcon,
+          'oneicon-span': isListWithIcons && element.secondIcon && !element.firstIcon
+        }"
+      >
+        {{ element.label }}
+      </span>
+      <ng-container *ngIf="isListWithIcons">
+        <span class="second-icon-span" *ngIf="element.secondIcon"> <img [src]="element?.secondIcon"/></span>
+        <span class="first-icon-span" *ngIf="element.firstIcon"> <img [src]="element?.firstIcon"/></span>
+      </ng-container>
+    </mat-option>
+  </mat-select>
+  <img class="drop-down-arrow" *ngIf="!isVideoTab" [src]="downArrowIcon" />
+</div>

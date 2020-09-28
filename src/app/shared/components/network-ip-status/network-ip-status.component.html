@@ -1,0 +1,21 @@
+<div class="status-container">
+  <div class="status-label">
+    <span>Status</span>
+  </div>
+  <div class="status-ethernet-container">
+    <div class="status-toogle-button">
+      <app-toggle-button [uuid]="statusUUID" (toggle)="onToggle($event)" [toggledValue]="toggled"></app-toggle-button>
+    </div>
+    <div class="ethernet-connection-status">
+      <img
+        [src]="ethernetIcon"
+        [ngClass]="displayConnection === 'Connected' ? 'icon-center' : 'ethernet-disabled icon-center'"
+      />
+      <div [ngClass]="displayConnection === 'Connected' ? 'icon-center' : 'ethernet-disabled icon-center'">
+        <label>
+          {{ displayConnection }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!hooks/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "target": ["nsis"]
+  },
+  "linux": {
+    "icon": "dist",
+    "target": ["AppImage"]
+  },
+  "appId": "com.raphael.application",
+  "productName": "Bose-Work-Configuration-DevTool",
+  "artifactName": "${productName}-Setup-${version}.${ext}",
+  "directories": {
+    "buildResources": "release/dev",
+    "output": "release/dev"
+  }
+}

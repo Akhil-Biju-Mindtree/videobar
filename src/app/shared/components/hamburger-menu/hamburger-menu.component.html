@@ -1,0 +1,10 @@
+<button mat-icon-button [disabled]="isDisabled" class="hamburger-button" [matMenuTriggerFor]="menu">
+  <img [src]="iconPath" [ngClass]="{'img-disabled': isDisabled}"/>
+</button>
+
+<mat-menu #menu="matMenu" backdropClass="hamburgerMenu">
+  <button mat-menu-item *ngFor="let item of itemList" (click)="saveSelection(item)">
+    <img [src]="item.iconPath" />
+    <span class="item-label">{{ item.label }}</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,40 @@
+<div class="slider-container">
+  <div [ngClass]="{ 'slider-label': true, 'label-disabled': disabled }" *ngIf="label">
+    {{ label }}
+  </div>
+
+  <div
+    class="slider-with-text"
+    [ngClass]="{ 'padding-left-change': textBoxContainerWidth.width !== defaultTextBoxSize }"
+  >
+    <div class="numeric-text">
+      <app-label-numeric-textbox
+        [value]="sliderValue"
+        (valueChange)="updateSlider($event)"
+        [uuid]="uuid"
+        [hasKeyEvents]="true"
+        [isSliderWithTextBox]="true"
+        [parentForm]="parentForm"
+        [disabled]="disabled"
+        [restoreDefault]="restoreDefault"
+        [isRequired]="true"
+        [isTextAllign]="true"
+        [containerWidthStyle]="textBoxContainerWidth"
+      >
+      </app-label-numeric-textbox>
+    </div>
+    <div class="slider-control">
+      <app-slider
+        [showMinValue]="true"
+        [showMaxValue]="true"
+        [value]="sliderValue"
+        [uuid]="uuid"
+        (valueChange)="updateTextBox($event)"
+        [disabled]="disabled"
+        [containerWidthStyle]="containerWidthStyle"
+        [showSteps]="showSteps"
+        [customStepValue]="customStepValue"
+      ></app-slider>
+    </div>
+  </div>
+</div>

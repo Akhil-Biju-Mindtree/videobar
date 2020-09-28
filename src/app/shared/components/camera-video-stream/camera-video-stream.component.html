@@ -1,0 +1,102 @@
+<div *ngIf="!isVideoStreaming">
+  <!-- !If route is Camera-tream -->
+  <ng-container *ngIf="currentRoute === 'camera'">
+    <div class="notification-banner">
+      <div *ngIf="isVideoLoaded">
+        <span>
+          {{ noCameraStreamText[0] }}
+          <a (click)="checkAndGetVideoStream()">refresh</a>
+          {{ noCameraStreamText[1] }}
+        </span>
+      </div>
+      <div *ngIf="!isVideoLoaded">
+        {{ loadingVideoStream }}
+      </div>
+    </div>
+    <div class="video-stream" [ngClass]="{ 'no-camera-view-home': !isVideoLoaded }">
+      <img [src]="noCameraBackground" *ngIf="isVideoLoaded" />
+      <div *ngIf="isVideoLoaded && showLowLight" class="inner-container">
+        <app-low-light-compensation></app-low-light-compensation>
+      </div>
+    </div>
+    <div class="no-camera-container">
+      <app-no-camera-stream *ngIf="isVideoLoaded"></app-no-camera-stream>
+    </div>
+  </ng-container>
+
+  <!-- !If route is Video -->
+  <ng-container *ngIf="currentRoute === 'video'">
+    <div class="video-stream video-stream-video-setting">
+      <img [src]="noCameraBackground" />
+      <div class="outlay"></div>
+      <div *ngIf="isVideoLoaded">
+        <div class="notification-banner-video" [ngClass]="{ 'web-banner-video': !isDesktopApp }">
+          <span class="no-stream-span">
+            {{ noCameraStreamText[0] }}
+            <a (click)="checkAndGetVideoStream()">refresh</a>
+            {{ noCameraStreamText[1] }}
+          </span>
+        </div>
+      </div>
+      <div *ngIf="!isVideoLoaded">
+        <div class="notification-banner-video loading-padding" [ngClass]="{ 'web-banner-video': !isDesktopApp }">
+          {{ loadingVideoStream }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- !If route is Microphone -->
+  <ng-container *ngIf="currentRoute === 'microphones'">
+    <div *ngIf="isVideoLoaded">
+      <div
+        class="no-camera-view-microphone"
+        [ngClass]="{
+          'full-screen-image': isFullScreen | async,
+          'xs-web-screen': screenWidthHeight === 'xs',
+          'md-lg-web-screen': screenWidthHeight === 'md-lg',
+          'xl-web-screen': screenWidthHeight === 'xl'
+        }"
+      >
+        <span class="no-stream-microphone-span">
+          {{ noCameraStreamText[0] }}
+          <a (click)="checkAndGetVideoStream()">refresh</a>
+          {{ noCameraStreamText[1] }}
+        </span>
+      </div>
+    </div>
+    <div *ngIf="!isVideoLoaded">
+      <div
+        class="no-camera-view-microphone"
+        [ngClass]="{
+          'full-screen-image': isFullScreen | async,
+          'xs-web-screen': screenWidthHeight === 'xs',
+          'md-lg-web-screen': screenWidthHeight === 'md-lg',
+          'xl-web-screen': screenWidthHeight === 'xl'
+        }"
+      >
+        {{ loadingVideoStream }}
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div
+  id="video-stream"
+  [ngStyle]="{ width: canvasWidth - 1 + 'px', height: canvasHeight + 'px' }"
+  [ngClass]="{
+    'camera-route-video-stream': currentRoute == 'camera',
+    'audio-video-stream': isAudioVideo,
+    'video-stream no-camera-stream-text': !isAudioVideo,
+    'xs-web-screen': screenWidthHeight === 'xs' && currentRoute === 'microphones',
+    'md-lg-web-screen': screenWidthHeight === 'md-lg' && currentRoute === 'microphones',
+    'xl-web-screen': screenWidthHeight === 'xl' && currentRoute === 'microphones',
+    'apply-margin-auto': currentRoute === 'microphones'
+  }"
+  #videoContainer
+>
+  <video [class.audio-video-container]="isAudioVideo" id="video-container" #videoStream></video>
+  <div *ngIf="showLowLight" class="inner-container">
+    <app-low-light-compensation></app-low-light-compensation>
+  </div>
+</div>

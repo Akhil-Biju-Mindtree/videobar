@@ -1,0 +1,14 @@
+<div class="identity-container">
+  <div class="identity-field" *ngFor="let field of deviceIdentityFields; let i = index">
+    <label class="label-text"> {{ field.label }}</label>
+    <div class="text-field" id="{{ i }}">
+      <app-text-field-textbox
+        [uuid]="field.uuid"
+        [value]="field.value"
+        (valueChange)="updateValue($event, field.uuid, i)"
+        (keydown)="handleKeyDown($event, field.uuid, i)"
+        [isRequired]="field.isRequired"
+      ></app-text-field-textbox>
+    </div>
+  </div>
+</div>

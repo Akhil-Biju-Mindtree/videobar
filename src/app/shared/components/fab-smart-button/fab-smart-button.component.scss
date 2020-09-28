@@ -1,0 +1,11 @@
+.disable-pointer-events {
+  pointer-events: none;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.enable-pointer-events {
+  pointer-events: all;
+  box-shadow: none !important;
+  transition: none !important;
+}

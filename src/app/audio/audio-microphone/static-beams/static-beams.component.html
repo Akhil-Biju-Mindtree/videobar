@@ -1,0 +1,12 @@
+<div class="beam-container" id="beam-container">
+  <div
+    id="overlay-container"
+    [ngClass]="{
+      'full-screen-view': isFullScreen | async,
+      'overlay-container': currentlyHoveredBeam,
+      'overlay-container-not-selected': !currentlyHoveredBeam
+    }"
+    #overlayContainer
+  ></div>
+</div>
+

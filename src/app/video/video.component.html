@@ -1,0 +1,20 @@
+<div class="video-container">
+  <div class="side-nav-content-title" ngClass.xs="usb-size-padding">
+    <h4>Video</h4>
+    <div class="update-firmware"></div>
+  </div>
+
+  <app-navigation [navigationItems]="navigationItems"></app-navigation>
+
+  <div class="camera-settings-video-stream" ngClass.lg="video-full-size-margin" ngClass.xl="video-full-size-margin">
+    <div class="video-stream-view">
+      <app-camera-video-stream></app-camera-video-stream>
+    </div>
+  </div>
+  <div
+    class="camera-settings-video-controls full-screen-padding"
+    [ngClass.xs]="{ 'usb-size-padding': true, 'camera-setting-content-web': !isDesktopApp }"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>

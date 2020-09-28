@@ -1,0 +1,70 @@
+@import 'variables.scss';
+
+.inner-container {
+  padding: 24px 16px 16px 31px !important;
+  ;
+}
+
+.error-inner-container {
+  padding: 25px 16px 16px 40px !important;
+}
+
+.dialog-content {
+  color: $font-color-dark-grey;
+  text-align: left;
+  line-height: 1.64;
+  width: 97%;
+  padding: 0px;
+}
+
+.error-dialog-content {
+  color: $font-color-dark-grey;
+  text-align: left;
+  line-height: 1.64;
+  width: 80%;
+  padding-top: 5px;
+}
+
+.dialog-action {
+  display: flex;
+  margin-top: 34px;
+  justify-content: flex-end;
+}
+
+.error-dialog-action {
+  display: flex;
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
+.dialog-title {
+  color: $font-color-black;
+  font-size: 11px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 1.5;
+}
+
+.error-dialog-title {
+  font-size: 11px;
+  font-weight: bold;
+  height: 18px;
+  line-height: 1.64;
+  color: $bright-red;
+}
+
+.dialog-button-width-confirm {
+  min-width: 84px;
+  padding: 0px;
+  margin-right: 18px;
+
+
+}
+
+.dialog-button-width-refute {
+  min-width: 84px;
+  padding: 0px;
+  margin-right: 7px;
+
+
+}

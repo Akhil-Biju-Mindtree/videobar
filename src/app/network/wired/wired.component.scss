@@ -1,0 +1,12 @@
+.wired-container {
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+}
+
+.ip-settings-container {
+  display: flex;
+  flex-flow: column;
+  margin-top: 15px;
+  // height: -webkit-calc(100% - 50px);
+  //background-color: yellow;
+}

@@ -1,0 +1,52 @@
+<div class="audio-controls-container scroll-container full-screen-padding" ngClass.xs="usb-size-padding">
+  <div class="audio-control-toggle">
+    <div class="audio-control-label">
+      <label>Microphone Mute Access </label>
+    </div>
+    <div>
+      <mat-slide-toggle [checked]="microphoneMuteEnabled" (change)="toggleMicrophoneState()"></mat-slide-toggle>
+    </div>
+    <div class="control-enabled-status">{{ displayToggleState(microphoneMuteEnabled) }}</div>
+  </div>
+  <div class="audio-control-toggle">
+    <div class="audio-control-label">
+      <label>Acoustic Echo Cancellation </label>
+    </div>
+    <div>
+      <mat-slide-toggle [checked]="aecEnabled" (change)="toggleAECState()"></mat-slide-toggle>
+    </div>
+    <div class="control-enabled-status">{{ displayToggleState(aecEnabled) }}</div>
+  </div>
+
+  <div class="slider-controls">
+    <div class="audio-control-slider">
+      <app-silder-with-textbox
+        [restoreDefault]="restoreObservable"
+        [uuid]="audioUUIDs.ANALOG_INPUT"
+        label="Analog Input Gain"
+        [showSteps]="true"
+        [customStepValue]="12"
+      ></app-silder-with-textbox>
+    </div>
+    <div class="audio-control-slider">
+      <app-silder-with-textbox
+        [restoreDefault]="restoreObservable"
+        [uuid]="audioUUIDs.SPEAKER_VOLUME"
+        label="Speaker Volume"
+      ></app-silder-with-textbox>
+    </div>
+  </div>
+  <div class="audio-control-toggle">
+    <div class="audio-control-label">
+      <label>Bridged Bluetooth Calls</label>
+    </div>
+    <div>
+      <mat-slide-toggle [checked]="bridgedBTCallEnabled" (change)="toggleBridgedBTCall()"></mat-slide-toggle>
+    </div>
+    <div class="control-enabled-status">{{ displayToggleState(bridgedBTCallEnabled) }}</div>
+  </div>
+
+  <div class="restore-button-conatianer">
+    <button mat-button class="normal-button" (click)="restoreDefaults()">Restore Audio Controls to Defaults</button>
+  </div>
+</div>

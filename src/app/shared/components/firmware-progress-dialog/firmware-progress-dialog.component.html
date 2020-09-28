@@ -1,0 +1,18 @@
+<div class="inner-container">
+  <div class="dialog-title">
+    {{ data.title }}
+  </div>
+  <div class="dialog-content" [innerHTML]="data.content"></div>
+  <div class="progress-container">
+    <div class="current-progress-container">
+      <div class="operation-text" [innerHTML]="data.currentOperationText"></div>
+      <mat-progress-bar class="progress-bar-style" mode="determinate" [value]="currentProgress"></mat-progress-bar>
+      <span class="percentage-container">{{ currentProgress }}%</span>
+    </div>
+    <div class="total-progress-container">
+      <div class="operation-text"><p>Total Progress</p></div>
+      <mat-progress-bar class="progress-bar-style" mode="determinate" [value]="totalProgress"></mat-progress-bar>
+      <span class="percentage-container">{{ totalProgress }}%</span>
+    </div>
+  </div>
+</div>

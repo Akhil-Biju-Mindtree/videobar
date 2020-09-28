@@ -1,0 +1,42 @@
+<div class="camera-preset-container">
+  <div class="camera-preset">
+    <div class="camera-preset-label">
+      <span
+        (click)="activatePreset()"
+        matTooltip="View preset"
+        matTooltipPosition="below"
+        matTooltipShowDelay="toolTipDelay"
+        matTooltipClass="view-preset-tooltip"
+      >
+        {{ preset.label }}
+        <img src="{{ activatePresetIcon }}" />
+      </span>
+    </div>
+
+    <div class="preset-control" *ngFor="let control of controls">
+      <app-textbox-with-label
+        [label]="control.label"
+        [value]="control.value"
+        [parentForm]="parentForm"
+        [uuid]="control.uuid"
+        [isRequired]="true"
+        [restoreDefault]="triggerRestoreObservable"
+        [isTextAllign]="true"
+      >
+      </app-textbox-with-label>
+    </div>
+  </div>
+  <div class="save-preset-button">
+    <button
+      mat-button
+      (click)="onSavePreset()"
+      *ngIf="parentForm.dirty && parentForm.valid; else disabled"
+      class="primary-button"
+    >
+      Save
+    </button>
+    <ng-template #disabled>
+      <button mat-button disabled class="primary-button">Save</button>
+    </ng-template>
+  </div>
+</div>

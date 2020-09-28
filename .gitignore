@@ -1,0 +1,68 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+/app-builds
+/release
+/firmware-server
+main.js
+src/**/*.js
+!src/karma.conf.js
+*.js.map
+
+# dependencies
+/node_modules
+/server/firmware/node_modules
+/webUI
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+package-lock.json
+
+# e2e
+/e2e/*.js
+!/e2e/protractor.conf.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+
+#compodoc documentation
+/documentation
+
+#Ingore js file for server and electron folder
+/server/**/*.js
+/electron/**/*.js
+/configurations/**/*.js
+/shared/**/*.js
+!/shared/configurations/preinstall-script.js
+/logger/**/*.js
+/*.zip
+
+#Ignore yarn-error log files
+yarn-error.log

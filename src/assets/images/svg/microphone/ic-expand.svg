@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <path id="prefix__a" d="M1.705 1.045L5.85 5.38l-.705.737L1 1.783v3.444H0V0h5v1.045H1.705zm3.44 8.516L1 13.899v-3.444H0v5.227h5v-1.046H1.705l4.145-4.333-.705-.742zM11 0v1.045h3.295L10.15 5.38l.705.737L15 1.783v3.444h1V0h-5zm4 13.9l-4.145-4.334-.705.737 4.145 4.333H11v1.046h5v-5.227h-1v3.444z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle cx="20" cy="20" r="20" fill="#F3F3F3" opacity=".75"/>
+        <g transform="translate(12 12)">
+            <mask id="prefix__b" fill="#fff">
+                <use xlink:href="#prefix__a"/>
+            </mask>
+            <use fill="#242424" fill-rule="nonzero" xlink:href="#prefix__a"/>
+            <g fill="#242424" mask="url(#prefix__b)">
+                <path d="M0 0H20V20.909H0z"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+@import 'variables.scss';
+
+.camera-settings-container {
+  overflow-y: auto;
+  overflow-x: hide;
+}
+
+.heading-margin {
+  margin: 4px 0px 4px 0px;
+  line-height: 1.64;
+  color: $font-color-black;
+}
+
+.save-preset-menu {
+  padding-bottom: 24px;
+  padding-top: 4px;
+  padding-left: 152px;
+}
+
+.web-camera-settings-container {
+  padding-bottom: 2%;
+}

@@ -1,0 +1,48 @@
+<div class="user-access-container">
+  <div class="video-controls">
+    <h6 class="video-margin">Video</h6>
+    <div class="slide-toggle">
+      <app-toggle-button
+        [uuid]="videoControlsCamera.uuid"
+        [label]="videoControlsCamera.label"
+        (toggle)="togglechange($event)"
+      ></app-toggle-button>
+    </div>
+    <div class="slide-toggle">
+      <app-toggle-button
+        [disabled]="disableAutoFrame"
+        [uuid]="videoControlAutoFrame.uuid"
+        [label]="videoControlAutoFrame.label"
+        (toggle)="toggleAF($event)"
+      >
+      </app-toggle-button>
+    </div>
+    <div class="audio-controls">
+      <h6 class="audio-margin">Audio</h6>
+      <div *ngFor="let control of audioControls" class="slide-toggle">
+        <app-toggle-button [uuid]="control.uuid" [label]="control.label"></app-toggle-button>
+      </div>
+    </div>
+    <div class="network-controls" [ngClass]="{ 'web-network-controls': !isDesktopApp }">
+      <h6 class="audio-margin">Network & Connectivity</h6>
+      <div *ngFor="let control of networkControls" class="slide-toggle">
+        <app-toggle-button
+          *ngIf="!isDesktopApp"
+          [label]="control.label"
+          (toggle)="onToggle($event, control)"
+          [toggledValue]="control.toggled"
+        ></app-toggle-button>
+        <app-toggle-button
+          *ngIf="isDesktopApp"
+          [uuid]="control.uuid"
+          [label]="control.label"
+          (toggle)="onToggle($event, control)"
+          [toggledValue]="control.toggled"
+        ></app-toggle-button>
+      </div>
+      <div class="slide-toggle">
+        <app-toggle-button [uuid]="blutoothControls.uuid" [label]="blutoothControls.label"></app-toggle-button>
+      </div>
+    </div>
+  </div>
+</div>

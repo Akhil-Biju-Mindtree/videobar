@@ -1,0 +1,6 @@
+# SOURCE				DESTINATION/RULE			COMMAND
+s|<VERSION>|$[Version]|			rule
+release/Bose*.msi			<DEPLOY_DIR>/.				glob
+release/Bose*.exe			<DEPLOY_DIR>/.				glob
+release/dev/Bose*.exe			<DEPLOY_DIR>/.				glob
+coverage.zip				<DEPLOY_DIR>/.				none

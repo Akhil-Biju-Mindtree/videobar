@@ -1,0 +1,25 @@
+<div
+  class="side-nav-content-submenu"
+  [ngClass.xs]="{
+    'usb-size-padding': true,
+    'side-nav-content-submenu-microphone': isUnderLined,
+    'side-nav-container-disabled': isDisabled,
+    'side-nav-content-web': !(router.url.includes(videoRoute) || router.url.includes(microphoneRoute)),
+    'nav-content-video-microphone': (router.url.includes(videoRoute) || router.url.includes(microphoneRoute)) && !isUnderLined,
+    'side-nav-content-configuration': router.url.includes(configurationRoute)
+  }"
+  [ngClass]="{ 'side-nav-content-submenu-microphone': isUnderLined, 'side-nav-container-disabled': isDisabled }"
+>
+  <div *ngFor="let item of navigationItems">
+    <a
+      [routerLink]="item.link"
+      routerLinkActive="navigation-link-active"
+      (keydown.control.enter)="$event.preventDefault()"
+      (keydown.shift.enter)="$event.preventDefault()"
+    >
+      <div [ngClass]="{ 'under-line': isUnderLined, 'under-line-disabled': isUnderLined && isDisabled }">
+        {{ item.label }}
+      </div>
+    </a>
+  </div>
+</div>

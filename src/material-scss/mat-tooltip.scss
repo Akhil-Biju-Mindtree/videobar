@@ -1,0 +1,70 @@
+@import 'variables.scss';
+.common-tooltip-style {
+  background-color: $font-color-dark-grey;
+  opacity: 0.75;
+  border-radius: 2px !important;
+  color: $color-white;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.custom-tooltip {
+  @extend .common-tooltip-style;
+  position: relative;
+  bottom: calc(100vh - 556px);
+  text-align: center !important;
+  padding: 6px 7px 6px 7px !important;
+  white-space: pre-line;
+}
+
+.light-correction {
+  @extend .common-tooltip-style;
+  position: relative;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  top: -20px;
+  right: -25px;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.for-slider {
+  @extend .custom-tooltip;
+  top: 77px;
+  right: 14px;
+}
+
+.mat-mini-fab .mat-button-wrapper {
+  display: inline !important;
+}
+
+.navigation-tooltip {
+  @extend .common-tooltip-style;
+  padding: 8px;
+  left: -20px;
+  position: absolute;
+  top: -40px;
+  white-space: nowrap;
+  @media screen and (min-width: 600px) and (max-width: 719px) and (orientation: portrait) {
+    top: -30px;
+    left: -10px;
+  }
+}
+
+.view-preset-tooltip {
+  @extend .common-tooltip-style;
+  position: absolute;
+  top: -20px;
+  white-space: nowrap;
+  padding: 6px 7px 6px 7px !important;
+  left: -65px;
+  @media screen and (min-width: 960px) {
+    top: -10px;
+    left: -55px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 959px) and (orientation: portrait) {
+    top: -10px;
+    left: -55px;
+  }
+}

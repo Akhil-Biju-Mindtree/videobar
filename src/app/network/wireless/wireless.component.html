@@ -1,0 +1,52 @@
+<div class="wireless-container">
+  <app-network-ip-status
+    [connectionStatusStateUUID]="connectionStatusStateUUID"
+    [wiredStatusUUID]="wirelessStatusUUID"
+    [ethernetIcon]="ethernetIcon"
+    (toggleStatus)="onToggleWiredStatus($event)"
+    (statusChange)="onStatusChange($event)"
+  >
+  </app-network-ip-status>
+
+  <!-- !Network List Drop Down -->
+
+  <div [ngClass]="isWirelessEnabled ? 'network-container' : 'network-container network-container-disabled'">
+    <div class="network-label">
+      <span>Network</span>
+    </div>
+    <div class="network-sub-container">
+      <div class="network-dropdown">
+        <app-select-dropdown
+          [parentForm]="wifiNameForm"
+          [uuid]="wifiNameUuid"
+          [itemList]="networkFoundItems"
+          (sendDataEvent)="onSelectNetworkList($event)"
+          [currentValue]="connectedDeviceName"
+          [placeholder]="connectedDeviceName"
+          [isListWithIcons]="true"
+          (dropDownClicked)="getNetworkList($event)"
+          [twoWayBound]="true"
+        ></app-select-dropdown>
+      </div>
+      <div class="automatic-connect-checkbox">
+        <mat-checkbox
+          [checked]="isAutomaticConnectChecked"
+          [disabled]="!isWirelessEnabled"
+          (change)="onAutoConnectSelect($event.checked)"
+          >Automatically Connect
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+
+  <div class="ip-settings-container" *ngIf="connectionStatus === 'Connected'">
+    <app-network-ip-settings
+      [isWireless]="true"
+      [ipConfigurationValues]="ipConfigurationValues"
+      [ipStatic]="ipStatic"
+      [ipSettingUUID]="ipSettingUUID"
+      [status]="connectionStatus"
+    >
+    </app-network-ip-settings>
+  </div>
+</div>

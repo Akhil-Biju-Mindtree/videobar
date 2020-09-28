@@ -1,0 +1,113 @@
+.drop_zone_file_selected {
+  height: 72px;
+  width: 374px;
+  margin: 0px;
+  border: 1px dashed #d7d7d7;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.drop_zone_content_file_selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  margin: auto;
+  text-align: center;
+  color: #3a3a3a;
+}
+
+.drop_zone_content_invalid_file_selected {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  margin: auto;
+  text-align: center;
+  color: #3a3a3a;
+}
+
+.filename-content {
+  display: inline-block;
+  vertical-align: middle;
+  height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filename-clear-div {
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  vertical-align: middle;
+  padding: 2px 4px 4px 5px;
+  .close-icon {
+    pointer-events: auto;
+    height: 11px;
+    width: 11px;
+    cursor: pointer;
+  }
+}
+
+.filename-clear-div_invalid {
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  vertical-align: middle;
+  padding: 4px 4px 4px 5px;
+  .close-icon {
+    pointer-events: auto;
+    height: 11px;
+    width: 11px;
+    cursor: pointer;
+  }
+}
+
+.file-select-container {
+  height: 72px;
+  width: 148px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-select-container-invalid {
+  width: 148px;
+  justify-content: center;
+  align-items: center;
+}
+
+.invalid-msg-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  color: #d0312e;
+  margin-top: 8px;
+}
+
+.file_name_with_error {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  margin-right: auto;
+  margin-left: auto;
+  word-break: break-all;
+  width: 277px;
+}
+
+.only_file_name {
+  display: inline-flex;
+  word-break: break-all;
+  align-items: center;
+  justify-content: center;
+  width: 277px;
+  height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drop-text-container {
+  line-height: 1.64;
+}

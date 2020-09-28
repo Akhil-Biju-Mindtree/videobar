@@ -1,0 +1,28 @@
+#!/bin/sh
+echo "Executing preinstaller script for custom installer"
+
+# Closing the application before upgrade.
+echo "Closing the application"
+osascript -e 'quit app "Bose Work Configuration"'
+echo "***Closed the Application***"
+
+# Deleting App components from Application folder.
+echo "Deleting Bose-Work-Configration Logs"
+logsPath=~/Library/Logs/Bose\ Work\ Configuration
+if [ -d "$logsPath" ]
+then
+rm -rf ~/Library/Logs/Bose\ Work\ Configuration
+echo "***Deleted Bose Work Configration Logs Successfully***"
+fi
+
+echo "Deleting Bose-Work-Configuration Application Support"
+#applicationSupportPath=~/Library/Application\ Support/Bose\ Work\ Configuration
+applicationSupportPath=~/Library/Application\ Support/Bose-Work-Configuration
+if [ -d "$applicationSupportPath" ]
+then
+rm -rf $applicationSupportPath
+echo "***Deleted Bose-Work-Configuration Application Support Successfully***"
+fi
+
+echo "Finished:preflight"
+exit 0

@@ -1,0 +1,9 @@
+<div class="network-password-container" [formGroup]="formGroup">
+  <div class="dialog-description">Add an identifying descritpion or select 'Continue' to skip.</div>
+  <div class="description-container">
+    <textarea (keydown.enter)="onEvent($event)" appAutoFocus formControlName="descriptionControl" maxlength="256"></textarea>
+    <div class="text-counter-container">
+      <span>{{ getWordsTypedLength() }} / 256</span>
+    </div>
+  </div>
+</div>

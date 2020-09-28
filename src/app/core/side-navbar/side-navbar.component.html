@@ -1,0 +1,55 @@
+<div *ngIf="$isAdmin | async">
+  <div *ngFor="let navgiationItem of navgiationList" class="button-container fullsize nav-block">
+    <a
+      [matTooltip]="navgiationItem.toolTipText"
+      [matTooltipDisabled]="hideTooltip"
+      [matTooltipShowDelay]="toolTipDelay"
+      [matTooltipClass]="toolTipClass"
+      [matTooltipPosition]="toolTipPosition"
+      [class.active-link]="rla.isActive"
+      [routerLink]="[navgiationItem.routerLink]"
+      routerLinkActive
+      #rla="routerLinkActive"
+      (keydown.control.enter)="$event.preventDefault()"
+      (keydown.shift.enter)="$event.preventDefault()"
+      class="button-container"
+    >
+      <div class="img-container">
+        <div *ngIf="!rla.isActive" class="image-container">
+          <div
+            *ngIf="navgiationItem.toolTipText === 'Configuration' && !isUpToDate"
+            class="firmware-available-dot"
+          ></div>
+          <img
+            [src]="navgiationItem.icon"
+            class="nav-icon"
+            ngClass.lt-lg="{{ navgiationItem.iconStyling }}"
+            ngClass.lg="{{ navgiationItem.iconStylingFullSize }}"
+            ngClass.xl="{{ navgiationItem.iconStylingFullSize }}"
+          />
+        </div>
+        <div *ngIf="rla.isActive" class="image-container">
+          <div
+            *ngIf="navgiationItem.toolTipText === 'Configuration' && !isUpToDate"
+            class="firmware-available-dot"
+          ></div>
+          <img
+            [src]="navgiationItem.icon"
+            class="nav-icon-dark"
+            ngClass.lt-lg="{{ navgiationItem.iconStyling }}"
+            ngClass.lg="{{ navgiationItem.iconStylingFullSize }}"
+            ngClass.xl="{{ navgiationItem.iconStylingFullSize }}"
+          />
+        </div>
+        <span
+          class="sidenav-label"
+          [class.active-link]="rla.isActive"
+          [class.font-active-link]="rla.isActive"
+          [class.font-inactive-link]="!rla.isActive"
+          ngClass.lt-lg="sidenav-label-hide"
+          >{{ navgiationItem.toolTipText }}
+        </span>
+      </div>
+    </a>
+  </div>
+</div>

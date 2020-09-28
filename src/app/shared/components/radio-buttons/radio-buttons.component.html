@@ -1,0 +1,10 @@
+<mat-radio-group
+  *ngFor="let item of allValues"
+  class="font-bold"
+  (change)="onChange($event, item?.abandonEmit)"
+  [(ngModel)]="valueSelected"
+>
+  <mat-radio-button [ngStyle]="radioButtonLayout" value="{{ item.value }}" [disabled]="disable"
+    ><span [ngClass]="{ 'bold-mat-radio-label': isLabelBold }">{{ item.text }}</span></mat-radio-button
+  >
+</mat-radio-group>

@@ -1,0 +1,56 @@
+<div class="side-nav-content-title content-border" ngClass.xs="usb-size-padding">
+  <h4>Settings</h4>
+</div>
+<div class="content-section" [ngClass]="{ 'web-margin': !isDesktopApp }">
+  <div class="app-logo">
+    <img src="{{ appInfo.BOSE_LOGO }}" width="96px" height="96px" />
+  </div>
+  <h1 appHideInWeb>
+    {{ appInfo.APP_NAME }}
+  </h1>
+  <h1 appHideInUsbApp>
+    {{ appInfo.APP_NAME_WEB }}
+  </h1>
+  <div class="app-version text-select">
+    {{ appInfo.APP_VERSION }}
+  </div>
+  <div appHideInWeb>
+    <a *ngIf="!isUpToDate" class="url-link update-link" (click)="downloadLatestApp()"
+      ><u>Version {{ latestAppVersion }} Update Available</u></a
+    >
+  </div>
+  <div *ngIf="firmwareVersion" class="firmware-version-container text-select">
+    Firmware Version: {{ firmwareVersion }}
+  </div>
+  <div class="firmware-update-link-container">
+    <a
+      *ngIf="firmwareVersion && !isUpToDateFirmware"
+      class="url-link update-link"
+      (click)="setRedirectAfterLogin()"
+      [routerLink]="isLoggedIn ? '/configuration/firmware' : '/login'"
+      ><u>Version {{ latestFirmwareVersion }} Update Available</u></a
+    >
+  </div>
+  <div *ngIf="cameraVersion" class="camera-version-container text-select">Camera Version: {{ cameraVersion }}</div>
+  <ng-container *ngIf="isDesktopApp">
+    <div class="about" *ngFor="let header of usbLinks | keyvalue">
+      <h6>{{ header.key }}</h6>
+      <div class="content-url" *ngFor="let link of header.value">
+        <a class="url-link" *ngIf="link.static" (click)="openNewTab(link.link)">{{ link.text }}</a>
+        <a class="url-link" *ngIf="!link.static" (click)="openDynamicLink(link.link)">{{ link.text }}</a>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!isDesktopApp">
+    <div class="about" *ngFor="let header of webLinks | keyvalue">
+      <h6>{{ header.key }}</h6>
+      <div class="content-url" *ngFor="let link of header.value">
+        <a class="url-link" *ngIf="link.static" (click)="openNewTab(link.link)">{{ link.text }}</a>
+        <a class="url-link" *ngIf="!link.static" (click)="openDynamicLink(link.link)">{{ link.text }}</a>
+      </div>
+    </div>
+  </ng-container>
+  <div class="copyright-text" [ngClass]="{'copyright-text-web': !isDesktopApp}" ngClass.lg="copyright-text-fullsize" ngClass.xl="copyright-text-fullsize">
+    <span>© Bose Corporation 2020</span>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.hamburger-button {
+  width: auto;
+  padding: 0px;
+  height: auto;
+  margin: 0px;
+  line-height: unset;
+}
+
+.img-disabled {
+  opacity: 0.3;
+}
+
+button.mat-menu-item {
+  img {
+    position: absolute;
+  }
+  .item-label {
+    margin-left: 25px;
+  }
+}

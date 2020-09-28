@@ -1,0 +1,17 @@
+<!-- !Shared Compo - Child Component -->
+<button
+  [appButtonHighlighter]="fabMiniStyles.directiveClass"
+  [ngStyle]="
+    (isDisabled && fabMiniStyles.disabledClass) ||
+    (isButtonOn && fabMiniStyles.onClass) ||
+    (!isButtonOn && fabMiniStyles.offClass)
+  "
+  [matTooltip]="(isButtonOn && toolTipText?.onText) || (!isButtonOn && toolTipText?.offText)"
+  [matTooltipDisabled]="hideToolTip || disableTooltip"
+  [matTooltipShowDelay]="toolTipDelay"
+  [matTooltipClass]="toolTipClass"
+  [disabled]="isDisabled"
+  [ngClass]="isDisabled ? 'disable-pointer-events' : 'enable-pointer-events'"
+  mat-mini-fab
+  (click)="onButtonClick()"
+></button>

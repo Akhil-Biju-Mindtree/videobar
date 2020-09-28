@@ -1,0 +1,73 @@
+{
+  "p5": {
+    "frameRate": 60
+  },
+  "canvasConstrain": {
+    "width": 440,
+    "height": 248,
+    "fullScreenWidth": 735,
+    "fullScreenHeight": 415.1,
+    "webCanvas": {
+      "xsWidth": 428,
+      "xsHeight": 241.8,
+      "mdlgWidth": 486,
+      "mdlgHeight":274.5
+    }
+  },
+  "beamComponent": {
+    "beamConstrain": {
+      "minimumAngle": -60,
+      "maximumAngle": 60,
+      "offset": 90,
+      "beamAngle": 7,
+      "beamDeleteAngle": 180,
+      "runningBeamAngle": 0,
+      "mouseRelativeMovementCorrector": 2.2,
+      "mouseDragConstrainFactor": 0.2
+    },
+    "beamColours": {
+      "notSelected": [
+        "rgba(0, 171, 113, 0.45)",
+        "rgba(255, 4, 101, 0.45)",
+        "rgba(0, 164, 214, 0.45)",
+        "rgba(139, 110, 177, 0.45)"
+      ],
+      "Selected": [
+        "rgba(0, 171, 113, 0.9)",
+        "rgba(255, 4, 101, 0.9)",
+        "rgba(0, 164, 214, 0.9)",
+        "rgba(139, 110, 177, 0.9)"
+      ]
+    }
+  },
+  "zoneComponent": {
+    "zoneColours": {
+      "notSelected": "rgba(171, 171, 171, 1)",
+      "Selected": "rgba(171, 171, 171, 1)"
+    },
+    "zoneDragHandleDiameter": 12,
+    "zoneConstraints": {
+      "zoneMinimumAngle": -90,
+      "zoneMaximumAngle": 90,
+      "zoneRestrictedMinimum": -83,
+      "zoneRestrictedMaximum": 83,
+      "mouseRelativeMovementCorrector": 1.7
+    }
+  },
+  "meetingRoomConfig": {
+    "height": 1.16,
+    "width": 2.55,
+    "depth": 4.06,
+    "cameraHeight": 0,
+    "roomWidth": {
+      "minWidth": 5,
+      "maxWidth": 19,
+      "defaultWidth": 12
+    },
+    "roomDepth": {
+      "minDepth": 21,
+      "maxDepth": 35,
+      "defaultDepth": 28
+    }
+  }
+}
